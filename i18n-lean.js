@@ -24,7 +24,7 @@
     sub3: "Get your reports on WhatsApp as soon as they are ready. No extra trip to collect them.",
     demoBanner: "DEMO PAGE: sample content, not the official Novatech website. Yellow “confirm” tags and 📷 boxes mark details still to be added.",
     demoNote: "This is a demo page for review. It is not the official website of Novatech Multispeciality Hospital. Prices, contacts and photos are placeholders.",
-    bandTests: "Tests available", bandPkgs: "Health packages", bandAreas: "Home-collection areas", bandDocs: "Specialist consultants",
+    bandDone: "Tests done", bandTests: "Tests available", bandPkgs: "Health packages", bandAreas: "Home-collection areas", bandDocs: "Specialist consultants",
     backHome: "← Back to home"
   };
   var mr = {
@@ -51,7 +51,7 @@
     sub3: "रिपोर्ट तयार होताच WhatsApp वर मिळवा. घेण्यासाठी वेगळी चक्कर नको.",
     demoBanner: "डेमो पेज: नमुना मजकूर, नोव्हाटेकची अधिकृत वेबसाइट नाही. पिवळे “निश्चित करा” टॅग व 📷 चौकटी म्हणजे अजून भरायची माहिती.",
     demoNote: "हे पुनरावलोकनासाठी डेमो पेज आहे. ही नोव्हाटेक मल्टिस्पेशालिटी हॉस्पिटलची अधिकृत वेबसाइट नाही. दर, संपर्क व फोटो नमुना आहेत.",
-    bandTests: "उपलब्ध तपासण्या", bandPkgs: "आरोग्य पॅकेजेस", bandAreas: "घरी संकलनाचे परिसर", bandDocs: "तज्ज्ञ डॉक्टर",
+    bandDone: "केलेल्या तपासण्या", bandTests: "उपलब्ध तपासण्या", bandPkgs: "आरोग्य पॅकेजेस", bandAreas: "घरी संकलनाचे परिसर", bandDocs: "तज्ज्ञ डॉक्टर",
     backHome: "← मुख्यपृष्ठावर परत"
   };
   window.X = window.X || { en: {}, mr: {} };

@@ -606,3 +606,17 @@ h2 { color: var(--brand); }
 .achip[aria-pressed="true"]::before { content: "✓ "; }
 @media (hover: hover) { .achip:hover { background: #efe7f7; border-color: #cdb3e4; } }
 .achip:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+
+/* numbers banner: 4 or 5 tiles */
+.statband[data-n="5"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.statband[data-n="5"] .sb-item:first-child { grid-column: 1 / -1; }
+@media (min-width: 640px) { .statband[data-n="5"] { grid-template-columns: repeat(3, minmax(0, 1fr)); } .statband[data-n="5"] .sb-item:first-child { grid-column: auto; } }
+@media (min-width: 1100px) { .statband[data-n="5"] { grid-template-columns: repeat(5, minmax(0, 1fr)); padding-inline: 28px; gap: 10px; } }
+@media (min-width: 1100px) { .statband[data-n="5"] .sb-item b { font-size: clamp(1.9rem, 3vw, 2.6rem); } .statband[data-n="5"] .sb-ico { width: 52px; height: 52px; } }
+.sb-item .tbd { font-size: .7em; vertical-align: middle; }
+.sb-item span:not(.sb-ico) { overflow-wrap: anywhere; }
+@media (max-width: 360px) {
+  .sb-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .statband { padding: 22px 16px; gap: 20px 10px; }
+}

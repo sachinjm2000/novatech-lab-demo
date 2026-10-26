@@ -292,3 +292,10 @@ window.LAB.searchChips = [
 
 /* Count shown in the numbers banner: specialist consultants at the hospital (from the hospital's list of 14). Confirm before launch. */
 window.LAB.consultantCount = 14;
+
+
+/* "Tests done" tile in the numbers banner. Leave null until the lab has a REAL count (from the lab software / registers).
+   Then enter it rounded DOWN, e.g. 1200 with the "+" suffix = "1,200+". While null: the demo shows a dash with a "confirm"
+   tag, and the live site (draft: false) hides the tile. Update it every month or two. */
+window.LAB.testsDone = null;
+window.LAB.testsDoneSuffix = "+";

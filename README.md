@@ -46,6 +46,12 @@ Checked at 320, 375, 390, 414, 768, 1024, 1280 and 1440 px: no sideways scroll, 
 no sticky hover on touch screens, safe-area padding for notched phones, test-group cards become a swipe row on phones,
 `prefers-reduced-motion` respected, print hides the bars. Test on real devices before launch (an old Android phone and an iPhone if you can).
 
+## Numbers banner ("Tests done" and the rest)
+The banner on the home page reads its figures from the site's own data (tests available, packages, areas, `consultantCount`).
+**"Tests done"** comes from `LAB.testsDone` in `data.js` and is `null` until the lab has a REAL count (from the lab software or registers).
+While `null`: the demo shows a dash with a "confirm" tag; the live site (`draft: false`) hides the tile. When you have a real count, enter it rounded
+down (e.g. `1200`) and it shows as "1,200+" (Indian digit grouping, e.g. 25,00,000+). Refresh it every month or two. Never enter a number you cannot back up.
+
 ## Photos (the biggest upgrade you can make)
 Take phone photos in good daylight, landscape, and put them in `img/`. Then set the file names in `LAB.photos` in `data.js`:
 `hero` (lab entrance or team), `lab` (analysers, clean bench), `team` (pathologist + technicians, with consent),

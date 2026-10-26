@@ -117,6 +117,7 @@
     target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
     flower: '<circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="12" r="2.4"/>',
     lens: '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
+    check: '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
     home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
     arrow: '<path d="M7 17L17 7M9 7h8v8"/>',
     star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'
@@ -187,12 +188,18 @@
     if (LAB.accreditation) html += "<li>" + esc(LAB.accreditation) + "</li>";
     q("#trust").innerHTML = html;
   }
+  function fmtNum(n, el) { return (+n).toLocaleString("en-IN") + ((el && el.getAttribute("data-suffix")) || ""); }
   function renderStats() {
     var el = q("#statBand"); if (el === NOOP) return;
     var nTests = LAB.categories.reduce(function (s, c) { return s + c.tests.length; }, 0);
-    var defs = [["tube", nTests, "bandTests"], ["shield", LAB.packages.length, "bandPkgs"], ["home", LAB.areas.length, "bandAreas"], ["user", LAB.consultantCount || 0, "bandDocs"]];
+    var defs = [];
+    if (LAB.testsDone) defs.push(["check", LAB.testsDone, "bandDone", LAB.testsDoneSuffix || ""]);
+    else if (LAB.draft) defs.push(["check", null, "bandDone", ""]);          // demo: placeholder until a real count exists
+    defs.push(["tube", nTests, "bandTests", ""], ["shield", LAB.packages.length, "bandPkgs", ""], ["home", LAB.areas.length, "bandAreas", ""], ["user", LAB.consultantCount || 0, "bandDocs", ""]);
+    el.setAttribute("data-n", defs.length);
     el.innerHTML = defs.map(function (d) {
-      return '<div class="sb-item"><span class="sb-ico">' + pkgIcon(d[0]) + '</span><div><b data-count="' + d[1] + '">' + (reduceMotion || statsPlayed ? d[1] : 0) + "</b><span>" + esc(t(d[2])) + "</span></div></div>";
+      var show = d[1] === null ? "—" : (reduceMotion || statsPlayed ? fmtNum(d[1], { getAttribute: function () { return d[3]; } }) : "0");
+      return '<div class="sb-item"><span class="sb-ico">' + pkgIcon(d[0]) + '</span><div><b' + (d[1] === null ? "" : ' data-count="' + d[1] + '" data-suffix="' + esc(d[3]) + '"') + ">" + show + "</b><span>" + esc(t(d[2])) + (d[1] === null ? " " + tbd() : "") + "</span></div></div>";
     }).join("");
     if (reduceMotion || statsPlayed) { statStart = null; return; }
     var started = false;
@@ -201,14 +208,14 @@
       if (started) return; started = true; statsPlayed = true;
       qa("[data-count]", el).forEach(function (n) {
         var end = +n.getAttribute("data-count"), t0 = null;
-        function step(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / 1200, 1); n.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
+        function step(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / 1200, 1); n.textContent = fmtNum(Math.round(end * (1 - Math.pow(1 - p, 3))), p < 1 ? null : n); if (p < 1) requestAnimationFrame(step); }
         requestAnimationFrame(step);
-        setTimeout(function () { n.textContent = end; }, 1600);   // never leave a 0 on screen if animation frames are paused
+        setTimeout(function () { n.textContent = fmtNum(end, n); }, 1600);   // never leave a 0 on screen if animation frames are paused
       });
     }
     statStart = function () { if (inView()) start(); };
     if ("IntersectionObserver" in window) { var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); start(); } }, { threshold: 0.3 }); io2.observe(el); }
-    setTimeout(statStart, 1200);      // covers the case where the banner is already on screen at load
+    setTimeout(statStart, 1200);
   }
   var statStart = null, statsPlayed = false;
   window.addEventListener("scroll", function () { if (statStart) statStart(); }, { passive: true });
