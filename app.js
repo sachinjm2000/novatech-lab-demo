@@ -314,7 +314,7 @@
     var list = (PAGE === "home" && pkgTag === "all") ? LAB.packages.filter(function (p) { return p.featured; })
       : LAB.packages.filter(function (p) { return pkgTag === "all" || (p.tags || []).indexOf(pkgTag) > -1; });
     q("#pkgGrid").innerHTML = list.map(function (p, i) {
-      return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + ';--ic:' + pal(i + 1).ic + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
+      return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + ';--ic:' + pal(i + 1).ic + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button">' +
         '<span class="arrow sm" aria-hidden="true">' + pkgIcon("arrow") + '</span><div class="pkg-head"><span class="pkg-ico" style="--ic:' + pal(i + 1).ic + '">' + pkgIcon(p.icon) + '</span><div><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p></div></div>" +
         '<div class="chips-row">' + fastChip(p.fasting) + '<span class="fast tat">' + tatHtml(p.tat) + "</span></div>" +
         '<ul class="inc">' + p.includes.slice(0, 4).map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") +
@@ -574,7 +574,7 @@
     document.documentElement.lang = lang;
     qa("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
     qa("[data-i18n-ph]").forEach(function (el) { el.placeholder = t(el.getAttribute("data-i18n-ph")); });
-    q("#langBtn").textContent = lang === "en" ? "मराठी" : "English";
+    q("#langBtn").innerHTML = (lang === "en" ? "मराठी" : "English") + '<span class="sr-only"> (' + (lang === "en" ? "Marathi" : "English") + " site)</span>";
   }
   function renderAll() {
     applyText(); fillFields(); renderTrust(); renderStats(); renderTiles(); renderAreas(); renderTrustGrid(); renderSeason();
