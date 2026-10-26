@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEMO · Lab Tests, Health Packages and Guides in Sangli | Novatech Hospital Laboratory</title>
+<meta name="description" content="DEMO page, not the official site. All blood tests and health checkup packages at Novatech Multispeciality Hospital laboratory, Sangli, with fasting guidance, preparation tips and quick health checks.">
+<meta name="robots" content="noindex, nofollow"><!-- DEMO: replace with index, follow when the real site goes live -->
+<meta name="theme-color" content="#6e2a8f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body data-page="tests">
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="draft-banner" id="draftBanner" hidden><span data-i18n="demoBanner"></span></div>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="index.html" aria-label="Novatech Hospital Laboratory">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 15h9"/></svg>
+      </span>
+      <span class="brand-text"><strong data-lab="labName"></strong><small data-i18n="brandSub"></small></span>
+    </a>
+    <nav class="nav" aria-label="Main" id="nav">
+      <a href="index.html" data-i18n="navHomeLink"></a>
+      <a href="#packages" data-i18n="snPackages"></a>
+      <a href="#tests" data-i18n="snTests"></a>
+      <a href="index.html#contact" data-i18n="navContact"></a>
+      <a href="#" data-wa="report" data-i18n="getReport"></a>
+    </nav>
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language">मराठी</button>
+    <a class="btn btn-primary sm hcall" data-call href="#">📞 <span data-i18n="callShort"></span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="pagehead">
+    <div class="wrap">
+      <a class="link-sm back" href="index.html" data-i18n="backHome"></a>
+      <h1 data-i18n="moreTitle"></h1>
+      <p class="lead" data-i18n="moreSub"></p>
+      <div class="tabs subnav" id="subnav">
+        <a class="tab" href="#packages" data-i18n="snPackages"></a>
+        <a class="tab" href="#tests" data-i18n="snTests"></a>
+        <a class="tab" href="#prepare" data-i18n="snPrepare"></a>
+        <a class="tab" href="#check" data-i18n="snCheck"></a>
+        <a class="tab" href="#doctors" data-i18n="snDoctors"></a>
+        <a class="tab" href="#faq" data-i18n="snFaq"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL PACKAGES -->
+  <section id="packages" class="sec tight">
+    <div class="wrap">
+      <h2 data-i18n="pkgTitle"></h2>
+      <p class="sub" data-i18n="pkgSub"></p>
+      <div id="season"></div>
+      <p class="filter-label" data-i18n="whoFor"></p>
+      <div class="tabs" id="pkgFilter" role="tablist"></div>
+      <div class="grid pkgs" id="pkgGrid"></div>
+    </div>
+  </section>
+
+  <!-- ALL TESTS -->
+  <section id="tests" class="sec alt">
+    <div class="wrap">
+      <h2 data-i18n="testTitle"></h2>
+      <p class="sub" data-i18n="testSub"></p>
+      <input id="testSearch" class="search" type="search" autocomplete="off" data-i18n-ph="testSearch">
+      <div class="ctabs" id="testTabs" role="tablist"></div>
+      <ul class="tests" id="testList"></ul>
+      <p class="muted" id="testEmpty" hidden data-i18n="testEmpty"></p>
+      <p class="muted note" data-i18n="testNote"></p>
+    </div>
+  </section>
+
+  <!-- BEFORE YOUR TEST -->
+  <section id="prepare" class="sec">
+    <div class="wrap">
+      <h2 data-i18n="prepTitle"></h2>
+      <p class="sub" data-i18n="prepSub"></p>
+      <div class="grid prep">
+        <article class="card rv"><span class="ico">⏰</span><h3 data-i18n="p1t"></h3><p data-i18n="p1d"></p></article>
+        <article class="card rv"><span class="ico">💊</span><h3 data-i18n="p2t"></h3><p data-i18n="p2d"></p></article>
+        <article class="card rv"><span class="ico">💧</span><h3 data-i18n="p3t"></h3><p data-i18n="p3d"></p></article>
+        <article class="card rv"><span class="ico">🎒</span><h3 data-i18n="p4t"></h3><p data-i18n="p4d"></p></article>
+        <article class="card rv"><span class="ico">🚭</span><h3 data-i18n="p5t"></h3><p data-i18n="p5d"></p></article>
+        <article class="card rv"><span class="ico">🧫</span><h3 data-i18n="p6t"></h3><p data-i18n="p6d"></p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK HEALTH CHECKS -->
+  <section id="check" class="sec alt">
+    <div class="wrap">
+      <h2 data-i18n="riskTitle"></h2>
+      <p class="sub" data-i18n="riskSub"></p>
+      <div class="grid risk">
+        <form class="card rv" id="bmiForm" novalidate>
+          <h3><span class="ico-sm">⚖️</span> <span data-i18n="bmiTitle"></span></h3>
+          <div class="two-f">
+            <label><span data-i18n="height"></span><input id="bmiH" type="number" inputmode="decimal" min="50" max="250" placeholder="165"></label>
+            <label><span data-i18n="weight"></span><input id="bmiW" type="number" inputmode="decimal" min="10" max="300" placeholder="68"></label>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="calc"></button>
+          <div class="result" id="bmiOut" aria-live="polite"></div>
+        </form>
+
+        <form class="card rv" id="idrsForm" novalidate>
+          <h3><span class="ico-sm">🩸</span> <span data-i18n="idTitle"></span></h3>
+          <div class="two-f">
+            <label><span data-i18n="idAge"></span>
+              <select id="idAge"><option value="" data-i18n="chooseOpt"></option><option value="0" data-i18n="ageA"></option><option value="20" data-i18n="ageB"></option><option value="30" data-i18n="ageC"></option></select></label>
+            <label><span data-i18n="idSex"></span>
+              <select id="idSex"><option value="" data-i18n="chooseOpt"></option><option value="M" data-i18n="sexM"></option><option value="F" data-i18n="sexF"></option></select></label>
+            <label><span data-i18n="idWaist"></span><input id="idWaist" type="number" inputmode="decimal" min="40" max="200" placeholder="90"></label>
+            <label><span data-i18n="idFam"></span>
+              <select id="idFam"><option value="" data-i18n="chooseOpt"></option><option value="0" data-i18n="famA"></option><option value="10" data-i18n="famB"></option><option value="20" data-i18n="famC"></option></select></label>
+          </div>
+          <label class="full"><span data-i18n="idAct"></span>
+            <select id="idAct"><option value="" data-i18n="chooseOpt"></option><option value="0" data-i18n="actA"></option><option value="20" data-i18n="actB"></option><option value="30" data-i18n="actC"></option></select></label>
+          <button class="btn btn-primary btn-block" type="submit" data-i18n="idBtn"></button>
+          <div class="result" id="idOut" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR DOCTORS AND COMPANIES -->
+  <section id="doctors" class="sec">
+    <div class="wrap">
+      <h2 data-i18n="docCompTitle"></h2>
+      <div class="grid two-cards">
+        <div class="card rv">
+          <h3 data-i18n="docTitle"></h3>
+          <p class="muted" data-i18n="docSub"></p>
+          <ul class="ticks"><li data-i18n="docT1"></li><li data-i18n="docT2"></li><li data-i18n="docT3"></li><li data-i18n="docT4"></li></ul>
+          <a class="btn btn-wa btn-block" data-wa="doctor" href="#"><span data-i18n="ctaWhatsapp"></span></a>
+          <a class="btn btn-ghost btn-block" data-call href="#"><span data-i18n="ctaCall"></span></a>
+        </div>
+        <div class="card rv">
+          <h3 data-i18n="orgTitle"></h3>
+          <p class="muted" data-i18n="orgSub"></p>
+          <ul class="ticks"><li data-i18n="orgT1"></li><li data-i18n="orgT2"></li><li data-i18n="orgT3"></li><li data-i18n="orgT4"></li></ul>
+          <a class="btn btn-wa btn-block" data-wa="org" href="#"><span data-i18n="orgCta"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="sec alt">
+    <div class="wrap narrow">
+      <h2 data-i18n="faqTitle"></h2>
+      <div id="faqList"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong data-lab="hospital"></strong> · <span data-lab="city"></span></p>
+    <p class="demo-note" data-i18n="demoNote"></p>
+    <p class="muted" data-i18n="disclaimer"></p>
+  </div>
+</footer>
+
+<dialog id="detail" aria-labelledby="dlgTitle">
+  <div class="dlg-card"><button type="button" class="dlg-x" id="dlgClose" aria-label="Close">×</button><div id="dlgBody"></div></div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="bar" id="bar">
+  <p class="fast-hint" id="fastHint" hidden></p>
+  <div class="bar-sel" id="barSel" hidden>
+    <span><b id="selCount">0</b> <span data-i18n="selected"></span></span>
+    <button type="button" id="selClear" class="link-sm" data-i18n="clear"></button>
+    <a class="btn btn-wa" data-wa="cart" href="#"><span data-i18n="sendWa"></span></a>
+  </div>
+  <div class="bar-quick" id="barQuick">
+    <a class="btn btn-wa" data-wa="hello" href="#"><span data-i18n="ctaWhatsapp"></span></a>
+    <a class="btn btn-primary" data-call href="#"><span data-i18n="ctaCall"></span></a>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="i18n-extra.js"></script>
+<script src="i18n-lean.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
