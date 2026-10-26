@@ -36,6 +36,8 @@ So the home page is built for Novatech's own patients: "Tests your doctor advise
 indicative, no doctor names; list is `LAB.departments` in `data.js`), "Send prescription" as the first quick action, a Doctor advises -> Sample -> Test -> Report flow,
 and "Where in the hospital" + "bring your prescription / OPD slip" in the contact card (`LAB.labLocation`). Health-checkup packages are kept as a secondary option, and the
 public-search/SEO side matters less (keep `noindex` removed at launch only if the hospital wants outsiders to find the lab).
+The **tests page** follows the same idea: "Find your test" first (search, browse **by department** or **by test type**, each test shows which departments often advise it),
+then how to prepare (with the fasting list), then the health-checkup packages, the calculators, doctors and the FAQ. `?dept=cardio` opens a department; `?cat=heart` opens a test type.
 Ideas that fit this model better than marketing: a QR code at OPD desks and on prescriptions linking here, the lab menu in the hospital's own system/app, report delivery to the consultant.
 
 ## Call-to-action rules used (and what to A/B test after launch)

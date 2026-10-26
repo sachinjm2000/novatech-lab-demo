@@ -15,8 +15,8 @@
     alt_hero: "Novatech Hospital Laboratory", alt_lab: "Inside the laboratory", alt_team: "Our laboratory team", alt_collection: "Sample collection staff", alt_building: "Novatech Multispeciality Hospital",
     reviewsTitle: "What patients say", reviewsDraft: "Real Google reviews will appear here after launch. We never invent reviews.",
     moreTitle: "Packages, tests and guides", moreSub: "Everything in one place. Tap a package or test for details.",
-    snPackages: "Packages", snTests: "Tests", snPrepare: "Prepare", snCheck: "Health check", snDoctors: "For doctors & companies", snFaq: "FAQ",
-    docCompTitle: "For doctors, clinics and companies",
+    snPackages: "Packages", snTests: "Tests", snPrepare: "Prepare", snCheck: "Health check", snDoctors: "For doctors & clinics", snFaq: "FAQ",
+    docCompTitle: "For doctors and clinics",
     testsWord: "tests", pkgsWord: "packages", allTestsBtn: "See all tests →",
     noMatch: "No match yet. Press Enter to search all tests.", typePkg: "Package", typeTest: "Test",
     sub1: "Your Novatech consultant advised some tests? Get them done here in the hospital laboratory, in the same building.",
@@ -38,6 +38,9 @@
     deptStep: "Step 1: choose the department", deptResult: "Tests commonly requested by {d}", deptNote: "Indicative list. Tap a test to add it, or send your prescription and we will pick the right tests.", deptSend: "Send my prescription", deptReset: "Choose another department",
     qRxBtn: "Send prescription", qFind: "Find a test",
     cWhere: "Where in the hospital", bringNote: "Please bring your doctor's prescription or OPD slip.",
+    testsPageTitle: "Tests advised by your doctor", testsPageSub: "Find the test on your prescription, see how to prepare, and add it to your list. We confirm price and report time on WhatsApp.",
+    modeDept: "By department", modeGroup: "By test type", commonIn: "Often advised in", fastListTitle: "Tests that usually need fasting", deptAll: "See all tests for this department →",
+    commonAll: "Commonly advised across most departments.",
     backHome: "← Back to home"
   };
   var mr = {
@@ -55,8 +58,8 @@
     alt_hero: "नोव्हाटेक हॉस्पिटल लॅबोरेटरी", alt_lab: "प्रयोगशाळेच्या आत", alt_team: "आमची लॅब टीम", alt_collection: "नमुना संकलन कर्मचारी", alt_building: "नोव्हाटेक मल्टिस्पेशालिटी हॉस्पिटल",
     reviewsTitle: "रुग्ण काय म्हणतात", reviewsDraft: "सुरू झाल्यानंतर खरे गुगल रिव्ह्यू इथे दिसतील. आम्ही रिव्ह्यू कधीही बनवत नाही.",
     moreTitle: "पॅकेजेस, तपासण्या व मार्गदर्शन", moreSub: "सर्व एका ठिकाणी. तपशीलासाठी पॅकेज किंवा तपासणीवर दाबा.",
-    snPackages: "पॅकेजेस", snTests: "तपासण्या", snPrepare: "तयारी", snCheck: "आरोग्य तपासा", snDoctors: "डॉक्टर व कंपन्यांसाठी", snFaq: "प्रश्नोत्तरे",
-    docCompTitle: "डॉक्टर, क्लिनिक व कंपन्यांसाठी",
+    snPackages: "पॅकेजेस", snTests: "तपासण्या", snPrepare: "तयारी", snCheck: "आरोग्य तपासा", snDoctors: "डॉक्टर व क्लिनिकसाठी", snFaq: "प्रश्नोत्तरे",
+    docCompTitle: "डॉक्टर व क्लिनिकसाठी",
     testsWord: "तपासण्या", pkgsWord: "पॅकेजेस", allTestsBtn: "सर्व तपासण्या पहा →",
     noMatch: "अजून काही जुळले नाही. सर्व तपासण्यांत शोधण्यासाठी Enter दाबा.", typePkg: "पॅकेज", typeTest: "तपासणी",
     sub1: "तुमच्या नोव्हाटेकच्या डॉक्टरांनी तपासण्या सांगितल्या आहेत? त्या इथेच, त्याच इमारतीतील हॉस्पिटल लॅबमध्ये करा.",
@@ -78,6 +81,9 @@
     deptStep: "पायरी १: विभाग निवडा", deptResult: "{d} विभागात सामान्यतः सांगितल्या जाणाऱ्या तपासण्या", deptNote: "ही सूचक यादी आहे. तपासणी जोडण्यासाठी दाबा, किंवा चिठ्ठी पाठवा, आम्ही योग्य तपासण्या निवडू.", deptSend: "माझी चिठ्ठी पाठवा", deptReset: "दुसरा विभाग निवडा",
     qRxBtn: "चिठ्ठी पाठवा", qFind: "तपासणी शोधा",
     cWhere: "हॉस्पिटलमध्ये कुठे", bringNote: "कृपया डॉक्टरांची चिठ्ठी किंवा ओपीडी स्लिप सोबत आणा.",
+    testsPageTitle: "तुमच्या डॉक्टरांनी सांगितलेल्या तपासण्या", testsPageSub: "चिठ्ठीवरील तपासणी शोधा, तयारी कशी करावी ते पहा आणि यादीत जोडा. दर व रिपोर्टची वेळ आम्ही WhatsApp वर कळवू.",
+    modeDept: "विभागानुसार", modeGroup: "तपासणीच्या प्रकारानुसार", commonIn: "सामान्यतः सांगितले जाते", fastListTitle: "सहसा उपाशी राहावे लागणाऱ्या तपासण्या", deptAll: "या विभागाच्या सर्व तपासण्या पहा →",
+    commonAll: "बहुतेक विभागांत सामान्यतः सांगितले जाते.",
     backHome: "← मुख्यपृष्ठावर परत"
   };
   window.X = window.X || { en: {}, mr: {} };

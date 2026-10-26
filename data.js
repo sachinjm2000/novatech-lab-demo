@@ -360,3 +360,12 @@ window.LAB.searchChips.unshift({ label: "Not sure? Find my checkup", label_mr: "
 
 /* Where the lab is inside the hospital, e.g. "Ground floor, next to the OPD". Confirm before launch. */
 window.LAB.labLocation = null;
+
+window.LAB.faqs.unshift(
+  { q: "My doctor wrote a test I cannot find here.", q_mr: "माझ्या डॉक्टरांनी लिहिलेली तपासणी इथे सापडत नाही.",
+    a: "Send a photo of the prescription on WhatsApp, or show it at the lab. We will confirm the test, the price and the report time.",
+    a_mr: "चिठ्ठीचा फोटो WhatsApp वर पाठवा किंवा लॅबमध्ये दाखवा. आम्ही तपासणी, दर आणि रिपोर्टची वेळ कळवू." },
+  { q: "Will my Novatech doctor see my report?", q_mr: "माझ्या नोव्हाटेकच्या डॉक्टरांना माझा रिपोर्ट दिसेल का?",
+    a: "Your report comes to you on WhatsApp. If you wish, show it to your treating doctor, or ask us to share it with them.",
+    a_mr: "रिपोर्ट तुम्हाला WhatsApp वर मिळतो. हवे असल्यास तो तुमच्या उपचार करणाऱ्या डॉक्टरांना दाखवा, किंवा आम्हाला त्यांच्यासोबत शेअर करण्यास सांगा." }
+);

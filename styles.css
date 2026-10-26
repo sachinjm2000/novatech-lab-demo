@@ -735,3 +735,13 @@ h2 { color: var(--brand); }
 .fchip[aria-pressed="true"] { background: #e4d7f1; border-color: var(--brand); color: var(--brand-dark); font-weight: 700; }
 .fmore { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
 .bring { margin: 0 0 4px; font-weight: 600; color: var(--brand-dark); }
+
+
+/* tests page for doctor-advised tests */
+.modebar { display: flex; gap: 8px; margin: 16px 0 0; flex-wrap: wrap; }
+.modebtn { min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; font: 700 .92rem Inter, "Noto Sans Devanagari", sans-serif; color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.modebtn[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+@media (hover: hover) { .modebtn[aria-pressed="false"]:hover { background: #f3ecfb; border-color: #cdb0e4; } }
+.tr-tags { display: block; margin-top: 4px; font-size: .78rem; font-weight: 600; color: var(--brand-dark); }
+.fastlist { margin-top: 24px; }
+.fastlist h3 { font-size: 1.05rem; }

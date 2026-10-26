@@ -5,7 +5,7 @@
   var NOOP = document.createElement("input");                        // stand-in so shared code can run on pages without an element
   var lang = "en";
   var selected = new Set();           // English names of chosen packages/tests; sent to WhatsApp as the "cart"
-  var area = "", cat = "popular", pkgTag = "all";
+  var area = "", cat = "popular", mode = "dept", pkgTag = "all";
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   try { var saved = localStorage.getItem("lab_lang"); if (saved === "mr" || saved === "en") lang = saved; } catch (e) {}
@@ -26,10 +26,10 @@
       tilesTitle: "What are you looking for?", tilesSub: "Tap an option to jump straight to the right tests.",
       s1t: "Doctor advises", s1d: "Your Novatech doctor writes the tests.", s2t: "Sample", s2d: "Give it at the hospital lab, or at home.",
       s3t: "Test", s3d: "Tested in the hospital laboratory.", s4t: "Report", s4d: "To you on WhatsApp; show it to your doctor.",
-      pkgTitle: "Health checkup packages", pkgSub: "Tap a package to see what is inside. Tap Add to put it on your list, then send everything in one WhatsApp message.",
-      testTitle: "All tests", testSub: "Every test our hospital consultants and referring doctors commonly request. Tap a test to learn about it, or Add it to your list. Cannot find yours? Send the prescription photo.",
+      pkgTitle: "Health checkups you can also book directly", pkgSub: "Tap a package to see what is inside. Tap Add to put it on your list, then send everything in one WhatsApp message.",
+      testTitle: "Find your test", testSub: "Search the test on your prescription, or browse by department or by test type. Tap a test to learn about it, or add it to your list. Cannot find yours? Send the prescription photo",
       testNote: "Some specialised tests may be sent to a partner reference laboratory; we will confirm price and report time when you book. Which tests you need is for your doctor to decide.",
-      popularTab: "Popular", testSearch: "Search all tests, e.g. thyroid", testEmpty: "No match. Send us the test name on WhatsApp and we will check.",
+      popularTab: "Popular", testSearch: "Search the test on your prescription, e.g. HbA1c", testEmpty: "No match. Send us the test name on WhatsApp and we will check.",
       homeTitle: "Home sample collection", homeSub: "A trained phlebotomist visits you. We collect in these areas:", homeHours: "Collection time:", homeHow: "How it works",
       homeT1: "Book on WhatsApp or by phone and pick a time.", homeT2: "Be at home; we bring everything needed.", homeT3: "Receive your report on WhatsApp.",
       docTitle: "For referring doctors and clinics", docSub: "Send your patients to a laboratory that is easy to work with.",
@@ -62,10 +62,10 @@
       tilesTitle: "तुम्हाला काय हवे आहे?", tilesSub: "पर्यायावर दाबा आणि थेट योग्य तपासण्यांकडे जा.",
       s1t: "डॉक्टर सांगतात", s1d: "तुमचे नोव्हाटेकचे डॉक्टर तपासण्या लिहून देतात.", s2t: "नमुना", s2d: "हॉस्पिटल लॅबमध्ये किंवा घरी द्या.",
       s3t: "तपासणी", s3d: "हॉस्पिटलच्या लॅबमध्ये तपासणी.", s4t: "रिपोर्ट", s4d: "तुम्हाला WhatsApp वर; डॉक्टरांना दाखवा.",
-      pkgTitle: "आरोग्य तपासणी पॅकेजेस", pkgSub: "पॅकेजमध्ये काय आहे ते पाहण्यासाठी त्यावर दाबा. यादीत टाकण्यासाठी “जोडा” दाबा, मग सर्व एकाच WhatsApp संदेशात पाठवा.",
-      testTitle: "सर्व तपासण्या", testSub: "आमचे हॉस्पिटलमधील डॉक्टर आणि संदर्भ देणारे डॉक्टर सामान्यतः सांगतात त्या सर्व तपासण्या. माहिती पाहण्यासाठी तपासणीवर दाबा किंवा यादीत “जोडा”. तुमची तपासणी सापडत नाही? चिठ्ठीचा फोटो पाठवा.",
+      pkgTitle: "थेट बुक करता येणारे आरोग्य चेकअप", pkgSub: "पॅकेजमध्ये काय आहे ते पाहण्यासाठी त्यावर दाबा. यादीत टाकण्यासाठी “जोडा” दाबा, मग सर्व एकाच WhatsApp संदेशात पाठवा.",
+      testTitle: "तुमची तपासणी शोधा", testSub: "चिठ्ठीवरील तपासणी शोधा, किंवा विभागानुसार / तपासणीच्या प्रकारानुसार पहा. माहितीसाठी तपासणीवर दाबा किंवा यादीत जोडा. तुमची तपासणी सापडत नाही? चिठ्ठीचा फोटो पाठवा",
       testNote: "काही विशेष तपासण्या भागीदार संदर्भ लॅबमध्ये पाठवाव्या लागू शकतात; बुकिंगच्या वेळी दर व रिपोर्टची वेळ कळवू. कोणत्या तपासण्या हव्यात हे तुमच्या डॉक्टरांनी ठरवावे.",
-      popularTab: "लोकप्रिय", testSearch: "सर्व तपासण्यांत शोधा, उदा. थायरॉईड", testEmpty: "काही सापडले नाही. तपासणीचे नाव WhatsApp वर पाठवा, आम्ही कळवू.",
+      popularTab: "लोकप्रिय", testSearch: "चिठ्ठीवरील तपासणी शोधा, उदा. एचबीए१सी", testEmpty: "काही सापडले नाही. तपासणीचे नाव WhatsApp वर पाठवा, आम्ही कळवू.",
       homeTitle: "घरी नमुना संकलन", homeSub: "प्रशिक्षित कर्मचारी तुमच्या घरी येतात. या परिसरांत सेवा उपलब्ध:", homeHours: "संकलनाची वेळ:", homeHow: "कसे चालते",
       homeT1: "WhatsApp किंवा फोनवर बुक करा आणि वेळ निवडा.", homeT2: "घरी थांबा; लागणारे सर्व साहित्य आम्ही आणतो.", homeT3: "रिपोर्ट WhatsApp वर मिळवा.",
       docTitle: "संदर्भ देणारे डॉक्टर व क्लिनिकसाठी", docSub: "तुमच्या रुग्णांना सोयीची लॅब.",
@@ -324,28 +324,47 @@
     }).join("");
   }
   function catList() { return [{ id: "popular", name: t("popularTab"), name_mr: t("popularTab"), svg: "star", tests: LAB.popular }].concat(LAB.categories); }
+  function deptList() { return [{ id: "popular", name: t("popularTab"), name_mr: t("popularTab"), svg: "star", tests: LAB.popular }].concat(LAB.departments); }
+  function cardList() { return mode === "dept" ? deptList() : catList(); }
+  function deptsOf(n) { return LAB.departments.filter(function (d) { return d.tests.indexOf(n) > -1; }); }
   function renderTests() {
-    var term = q("#testSearch").value.trim().toLowerCase(), list;
+    var term = q("#testSearch").value.trim().toLowerCase(), list, cards = cardList();
     if (term) {
       var seen = {}; list = [];
       LAB.categories.forEach(function (c) { c.tests.forEach(function (n) {
         var mr = (LAB.mrNames && LAB.mrNames[n]) || "";
         if (!seen[n] && (n.toLowerCase().indexOf(term) > -1 || mr.toLowerCase().indexOf(term) > -1)) { seen[n] = 1; list.push(n); }
       }); });
-    } else list = catList().filter(function (c) { return c.id === cat; })[0].tests;
-    q("#testTabs").innerHTML = catList().map(function (c, i) {
+    } else {
+      var cur = cards.filter(function (c) { return c.id === cat; })[0] || cards[0];
+      cat = cur.id; list = cur.tests;
+    }
+    q("#modeBar").innerHTML = ["dept", "group"].map(function (m) {
+      return '<button type="button" class="modebtn" data-mode="' + m + '" aria-pressed="' + (mode === m) + '">' + esc(t(m === "dept" ? "modeDept" : "modeGroup")) + "</button>";
+    }).join("");
+    q("#testTabs").innerHTML = cards.map(function (c, i) {
       var on = !term && c.id === cat;
       return '<button type="button" role="tab" class="ctab" data-tab="' + esc(c.id) + '" aria-selected="' + on + '" style="' + palStyle(i) + '"><span class="rc-ico sm">' + pkgIcon(c.svg) + '</span><span class="ct-tx"><b>' + esc(L(c, "name")) + "</b><small>" + c.tests.length + " " + esc(t("testsWord")) + "</small></span>" + '<span class="arrow sm" aria-hidden="true">' + pkgIcon("arrow") + "</span></button>";
     }).join("");
     q("#testList").innerHTML = list.map(function (n, i) {
       var p = LAB.prices && LAB.prices[n], c = catOfTest(n), ci = c ? LAB.categories.indexOf(c) + 1 : 0, info = LAB.testInfo && LAB.testInfo[n];
       var desc = info ? String(info[lang] || info.en).split(/(?<=[.।])\s/)[0] : (c ? L(c, "desc") : "");
+      var ds = deptsOf(n), tags = ds.length ? t("commonIn") + ": " + ds.slice(0, 3).map(function (d) { return L(d, "name"); }).join(" · ") + (ds.length > 3 ? " +" + (ds.length - 3) : "") : "";
       return '<li class="trow' + (selected.has(n) ? " is-sel" : "") + '" data-open="test:' + esc(n) + '" style="--i:' + Math.min(i, 12) + ";--ic:" + pal(ci).ic + '">' +
         '<span class="rc-ico sm">' + pkgIcon(c ? c.svg : "drop") + "</span>" +
-        '<button type="button" class="tr-main"><b class="tr-name">' + esc(testName(n)) + (isFastTest(n) ? ' <span class="fast sm">' + esc(t("fastTag")) + "</span>" : "") + '</b><span class="tr-desc">' + esc(desc) + "</span></button>" +
+        '<button type="button" class="tr-main"><b class="tr-name">' + esc(testName(n)) + (isFastTest(n) ? ' <span class="fast sm">' + esc(t("fastTag")) + "</span>" : "") + '</b><span class="tr-desc">' + esc(desc) + "</span>" + (tags ? '<span class="tr-tags">' + esc(tags) + "</span>" : "") + "</button>" +
         '<span class="pr">' + priceHtml(p) + "</span>" + addBtn(n) + '<span class="arrow" aria-hidden="true">' + pkgIcon("arrow") + "</span></li>";
     }).join("");
     q("#testEmpty").hidden = list.length > 0;
+  }
+  function renderFastList() {
+    var el = q("#fastList"); if (el === NOOP) return;
+    el.innerHTML = "<h3>" + esc(t("fastListTitle")) + '</h3><div class="pills">' + LAB.fastingTests.map(function (n) { return '<button type="button" class="chip" data-open="test:' + esc(n) + '">⏰ ' + esc(testName(n)) + "</button>"; }).join("") + "</div>";
+  }
+  function deptsHtml(name) {
+    var ds = deptsOf(name); if (!ds.length) return "";
+    if (ds.length > 8) return "<h4>" + esc(t("commonIn")) + '</h4><p class="muted">' + esc(t("commonAll")) + "</p>";
+    return "<h4>" + esc(t("commonIn")) + '</h4><div class="pills">' + ds.map(function (d) { return '<a class="chip" href="tests.html?dept=' + esc(d.id) + '#tests">' + esc(L(d, "name")) + "</a>"; }).join("") + "</div>";
   }
   function renderFaq() {
     q("#faqList").innerHTML = LAB.faqs.map(function (f) { return "<details><summary>" + esc(L(f, "q")) + "</summary><p>" + esc(L(f, "a")) + "</p></details>"; }).join("");
@@ -375,7 +394,7 @@
         '<div class="chips-row">' + (isFastTest(name) ? fastChip("8–12 hrs") : "") + "</div>" +
         '<h4>' + esc(t("mAbout")) + "</h4><p>" + esc(info ? (info[lang] || info.en) : t("mNoInfo")) + "</p>" +
         '<div class="d-foot"><div class="price">' + priceHtml(price) + "</div>" + dAdd(name) + '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + esc(waLink(t("waOne").replace("{n}", name))) + '">' + esc(t("mBook")) + "</a></div>" +
-        partOfHtml(name) + (more.length ? '<h4>' + esc(t("mMore")) + '</h4><div class="pills">' + more.map(function (n) { return '<button type="button" class="chip" data-open="test:' + esc(n) + '">' + esc(testName(n)) + "</button>"; }).join("") + "</div>" : "");
+        deptsHtml(name) + partOfHtml(name) + (more.length ? '<h4>' + esc(t("mMore")) + '</h4><div class="pills">' + more.map(function (n) { return '<button type="button" class="chip" data-open="test:' + esc(n) + '">' + esc(testName(n)) + "</button>"; }).join("") + "</div>" : "");
     }
     q("#dlgBody").innerHTML = html;
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); document.documentElement.classList.add("lock"); }
@@ -532,7 +551,7 @@
         var on = selected.has(n);
         return '<button type="button" class="chip fchip" data-add="' + esc(n) + '" aria-pressed="' + on + '">' + (on ? "✓ " : "+ ") + esc(testName(n)) + "</button>";
       }).join("") + "</div>" +
-      '<div class="fmore"><a class="btn btn-wa" data-wa="rx" href="#">' + esc(t("deptSend")) + '</a> <button type="button" class="btn btn-ghost" data-f="reset">' + esc(t("deptReset")) + "</button></div>";
+      '<div class="fmore"><a class="btn btn-wa" data-wa="rx" href="#">' + esc(t("deptSend")) + '</a> <a class="btn btn-ghost" href="tests.html?dept=' + esc(d.id) + '#tests">' + esc(t("deptAll")) + '</a> <button type="button" class="btn btn-ghost" data-f="reset">' + esc(t("deptReset")) + "</button></div>";
     wireLinks();
   }
 
@@ -565,7 +584,7 @@
   }
   function renderAll() {
     applyText(); fillFields(); renderTrust(); renderStats(); renderTiles(); renderAreas(); renderTrustGrid(); renderSeason();
-    renderPkgFilter(); renderPackages(); renderTests(); renderFaq(); renderPhotos(); renderReviews(); renderChips(); renderFinder(); updateBar(); setRot(rotIdx); fitLead();
+    renderPkgFilter(); renderPackages(); renderTests(); renderFaq(); renderPhotos(); renderReviews(); renderChips(); renderFinder(); renderFastList(); updateBar(); setRot(rotIdx); fitLead();
     if (openKey) openDetail(openKey);
     observeReveal();
   }
@@ -632,6 +651,8 @@
     if (go_) { closeDetail(); go(go_.getAttribute("data-go")); return; }
     var op = e.target.closest("[data-open]");
     if (op) { openDetail(op.getAttribute("data-open")); return; }
+    var mb = e.target.closest("[data-mode]");
+    if (mb) { mode = mb.getAttribute("data-mode"); cat = "popular"; q("#testSearch").value = ""; renderTests(); return; }
     var tab = e.target.closest("[data-tab]");
     if (tab) {
       cat = tab.getAttribute("data-tab"); q("#testSearch").value = ""; renderTests();
@@ -673,8 +694,9 @@
     location.href = "tests.html" + (v ? "?q=" + encodeURIComponent(v) : "") + "#tests";
   });
   if (PAGE === "tests") {
-    var pc = params.get("cat"), pp = params.get("pkg"), pq = params.get("q");
-    if (pc && catList().some(function (c) { return c.id === pc; })) cat = pc;
+    var pc = params.get("cat"), pd = params.get("dept"), pp = params.get("pkg"), pq = params.get("q");
+    if (pd && deptList().some(function (c) { return c.id === pd; })) { mode = "dept"; cat = pd; }
+    else if (pc && catList().some(function (c) { return c.id === pc; })) { mode = "group"; cat = pc; }
     if (pp && PKG_TAGS.some(function (x) { return x[0] === pp; })) pkgTag = pp;
     if (pq) q("#testSearch").value = pq;
   }
