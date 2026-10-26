@@ -226,7 +226,10 @@ window.LAB = {
 
   // PHOTOS. Put your real photos in the img/ folder and set the file name here, e.g. hero: "img/lab-front.jpg".
   // While null, the draft shows a placeholder that says which photo to take. Real photos beat icons: use them.
-  LAB.photos = { hero: null, lab: null, team: null, collection: null, building: null };
+  LAB.photos = { hero: "img/hero.svg", lab: "img/lab.svg", team: "img/team.svg", collection: "img/collection.svg", building: "img/building.svg" };
+  // true while the images above are sample illustrations. A small "Sample illustration" label is shown on each.
+  // When you replace them with REAL photos (img/lab.jpg etc.), set this to false and remove the label.
+  LAB.photoSamples = true;
 
   // The 6 packages shown on the home page (all packages are on tests.html).
   var featured = ["full", "basic", "diabetes", "thyroid", "women", "heart"];

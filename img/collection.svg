@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t"><title id="t">Illustration of a sample collection professional in uniform walking to a home with a collection kit</title>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe7f8"/><stop offset="1" stop-color="#fff1dc"/></linearGradient>
+  <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe8c4"/><stop offset="1" stop-color="#8fd49a"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#sky)"/>
+<circle cx="130" cy="120" r="56" fill="#fff3c4"/><circle cx="130" cy="120" r="38" fill="#ffd966"/>
+<ellipse cx="400" cy="110" rx="70" ry="22" fill="#fff" opacity=".95"/><ellipse cx="450" cy="98" rx="44" ry="18" fill="#fff" opacity=".95"/>
+<ellipse cx="640" cy="170" rx="56" ry="18" fill="#fff" opacity=".85"/>
+<!-- ground -->
+<rect x="0" y="420" width="800" height="180" fill="url(#grass)"/>
+<path d="M220 600l150-180h110l-60 180z" fill="#f4e8d4"/>
+<path d="M0 470c120-30 240-30 360 0" fill="none" stroke="#7bc48a" stroke-width="3" opacity=".5"/>
+<!-- house -->
+<g transform="translate(440 0)">
+  <rect x="20" y="230" width="260" height="190" rx="10" fill="#fff" stroke="#d8c7ea" stroke-width="5"/>
+  <path d="M0 240L150 120l150 120z" fill="#6e2a8f"/>
+  <path d="M0 240L150 120l150 120" fill="none" stroke="#55226f" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="120" y="320" width="64" height="100" rx="8" fill="#ff8a73"/><circle cx="172" cy="372" r="4" fill="#fff"/>
+  <rect x="50" y="280" width="52" height="52" rx="8" fill="#cdeaf8" stroke="#c9a8e3" stroke-width="4"/><path d="M76 280v52M50 306h52" stroke="#c9a8e3" stroke-width="3"/>
+  <rect x="206" y="280" width="52" height="52" rx="8" fill="#cdeaf8" stroke="#c9a8e3" stroke-width="4"/><path d="M232 280v52M206 306h52" stroke="#c9a8e3" stroke-width="3"/>
+  <rect x="204" y="156" width="26" height="50" fill="#55226f"/>
+</g>
+<!-- location pin -->
+<g transform="translate(560 40)"><path d="M30 0C13 0 0 13 0 30c0 22 30 50 30 50s30-28 30-50C60 13 47 0 30 0z" fill="#ff8a73"/><circle cx="30" cy="30" r="12" fill="#fff"/></g>
+<!-- trees -->
+<g><rect x="396" y="360" width="12" height="62" fill="#7a5a3a"/><circle cx="402" cy="340" r="40" fill="#6dbb7a"/><circle cx="380" cy="364" r="26" fill="#7ccb88"/></g>
+<g><rect x="770" y="370" width="10" height="52" fill="#7a5a3a"/><circle cx="775" cy="350" r="34" fill="#6dbb7a"/></g>
+<!-- collector (uniform, faceless) -->
+<g>
+  <ellipse cx="200" cy="560" rx="90" ry="14" fill="#241436" opacity=".12"/>
+  <path d="M168 556v-150M232 556v-150" stroke="#3a2a52" stroke-width="22" stroke-linecap="round"/>
+  <path d="M168 556h-4M232 556h4" stroke="#241436" stroke-width="20" stroke-linecap="round"/>
+  <path d="M140 400c0-48 26-80 60-80s60 32 60 80v20H140z" fill="#6e2a8f"/>
+  <path d="M176 322l24 28 24-28" fill="none" stroke="#fff" stroke-width="5"/>
+  <rect x="152" y="360" width="34" height="22" rx="5" fill="#fff"/><path d="M162 371h14M169 364v14" stroke="#6e2a8f" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="200" cy="274" r="40" fill="#e0b08a"/>
+  <path d="M160 262c2-28 20-44 40-44s38 16 40 44c-10-14-22-20-40-20s-30 6-40 20z" fill="#241436"/>
+  <path d="M158 244h84" stroke="#6e2a8f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M146 356c-14 24-16 50-8 70" fill="none" stroke="#e0b08a" stroke-width="20" stroke-linecap="round"/>
+  <!-- kit bag -->
+  <rect x="96" y="420" width="82" height="64" rx="12" fill="#fff" stroke="#6e2a8f" stroke-width="5"/>
+  <path d="M120 420v-14a14 14 0 0 1 28 0v14" fill="none" stroke="#6e2a8f" stroke-width="5"/>
+  <circle cx="137" cy="452" r="16" fill="#ff8a73"/><path d="M129 452h16M137 444v16" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <!-- other arm -->
+  <path d="M254 358c18 6 28 22 28 40" fill="none" stroke="#e0b08a" stroke-width="20" stroke-linecap="round"/>
+</g>
+<!-- floating tube + check -->
+<g transform="translate(290 210) rotate(18)"><rect x="0" y="0" width="22" height="74" rx="11" fill="#fff" stroke="#c9a8e3" stroke-width="4"/><rect x="4" y="30" width="14" height="40" rx="7" fill="#ff8a73"/><rect x="-3" y="-6" width="28" height="12" rx="5" fill="#241436"/></g>
+<circle cx="640" cy="470" r="26" fill="#79c93c"/><path d="M628 470l9 9 16-18" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

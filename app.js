@@ -455,7 +455,7 @@
   function renderPhotos() {
     qa("[data-photo]").forEach(function (el) {
       var key = el.getAttribute("data-photo"), src = LAB.photos && LAB.photos[key];
-      if (src) { el.innerHTML = '<img src="' + esc(src) + '" alt="' + esc(t("alt_" + key)) + '" loading="lazy">'; el.classList.remove("empty"); }
+      if (src) { el.innerHTML = '<img src="' + esc(src) + '" alt="' + esc(t("alt_" + key)) + '" loading="lazy">' + (LAB.photoSamples ? '<span class="sample-badge">' + esc(t("sampleBadge")) + "</span>" : ""); el.classList.remove("empty"); }
       else if (LAB.draft) { el.innerHTML = '<div class="ph"><span>📷</span><b>' + esc(t("addPhoto")) + "</b><small>" + esc(t("ph_" + key)) + "</small></div>"; el.classList.add("empty"); }
       else { el.innerHTML = ""; el.classList.add("empty", "nophoto"); }
     });

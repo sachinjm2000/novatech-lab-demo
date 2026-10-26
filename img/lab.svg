@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="t"><title id="t">Illustration of a clean pathology laboratory bench with a microscope, an analyser and a rack of sample tubes</title>
+<defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe6f8"/><stop offset="1" stop-color="#fff4e0"/></linearGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdeaf8"/><stop offset="1" stop-color="#eaf7fd"/></linearGradient>
+  <linearGradient id="bench" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a4bb5"/><stop offset="1" stop-color="#55226f"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f4a5a"/><stop offset="1" stop-color="#0f2f3b"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#wall)"/>
+<!-- window -->
+<rect x="60" y="50" width="250" height="170" rx="14" fill="#fff" stroke="#d8c7ea" stroke-width="6"/>
+<rect x="72" y="62" width="226" height="146" rx="8" fill="url(#sky)"/>
+<path d="M185 62v146M72 135h226" stroke="#fff" stroke-width="6"/>
+<ellipse cx="120" cy="100" rx="34" ry="12" fill="#fff" opacity=".9"/><ellipse cx="146" cy="94" rx="24" ry="10" fill="#fff" opacity=".9"/>
+<ellipse cx="240" cy="170" rx="30" ry="10" fill="#fff" opacity=".8"/>
+<path d="M310 50l120 190H250z" fill="#fff" opacity=".18"/>
+<!-- shelf with bottles -->
+<rect x="470" y="110" width="270" height="10" rx="5" fill="#c9a8e3"/>
+<g><rect x="490" y="62" width="26" height="48" rx="6" fill="#ff8a73"/><rect x="496" y="54" width="14" height="10" rx="3" fill="#7a3e60"/>
+<rect x="530" y="72" width="22" height="38" rx="6" fill="#f5a900"/><rect x="535" y="64" width="12" height="10" rx="3" fill="#7a5a10"/>
+<rect x="568" y="58" width="30" height="52" rx="8" fill="#2bb6ee"/><rect x="575" y="49" width="16" height="11" rx="3" fill="#175f80"/>
+<rect x="614" y="76" width="22" height="34" rx="6" fill="#79c93c"/><rect x="619" y="68" width="12" height="10" rx="3" fill="#3f6b1e"/>
+<rect x="652" y="64" width="28" height="46" rx="8" fill="#9b7cf5"/><rect x="658" y="56" width="16" height="10" rx="3" fill="#4b3a99"/>
+<rect x="696" y="80" width="26" height="30" rx="6" fill="#d95fee"/></g>
+<!-- bench -->
+<rect x="0" y="430" width="800" height="170" fill="url(#bench)"/>
+<rect x="0" y="414" width="800" height="26" rx="6" fill="#fff"/>
+<rect x="0" y="436" width="800" height="6" fill="#000" opacity=".08"/>
+<path d="M100 470v110M300 470v110M500 470v110M700 470v110" stroke="#fff" stroke-opacity=".12" stroke-width="3"/>
+<!-- microscope -->
+<g transform="translate(90 0)">
+  <rect x="38" y="392" width="150" height="22" rx="10" fill="#3a2a52"/>
+  <path d="M112 392V250a46 46 0 0 1 46-46" fill="none" stroke="#4a3568" stroke-width="22" stroke-linecap="round"/>
+  <rect x="74" y="250" width="78" height="14" rx="7" fill="#6e2a8f"/>
+  <rect x="134" y="168" width="30" height="86" rx="10" fill="#6e2a8f" transform="rotate(-24 149 211)"/>
+  <rect x="116" y="150" width="26" height="22" rx="6" fill="#241436" transform="rotate(-24 129 161)"/>
+  <rect x="84" y="262" width="62" height="12" rx="5" fill="#c9a8e3"/>
+  <circle cx="115" cy="330" r="22" fill="#fff" stroke="#c9a8e3" stroke-width="5"/>
+  <circle cx="115" cy="330" r="8" fill="#6e2a8f"/>
+</g>
+<!-- tube rack -->
+<g transform="translate(330 0)">
+  <rect x="0" y="360" width="130" height="14" rx="5" fill="#fff" stroke="#c9a8e3" stroke-width="3"/>
+  <rect x="0" y="398" width="130" height="16" rx="5" fill="#fff" stroke="#c9a8e3" stroke-width="3"/>
+  <g stroke="#fff" stroke-width="2">
+  <rect x="10" y="318" width="18" height="90" rx="9" fill="#ff8a73"/><rect x="38" y="312" width="18" height="96" rx="9" fill="#f5a900"/>
+  <rect x="66" y="320" width="18" height="88" rx="9" fill="#9b7cf5"/><rect x="94" y="314" width="18" height="94" rx="9" fill="#79c93c"/></g>
+  <rect x="8" y="306" width="22" height="14" rx="5" fill="#241436"/><rect x="36" y="300" width="22" height="14" rx="5" fill="#241436"/>
+  <rect x="64" y="308" width="22" height="14" rx="5" fill="#241436"/><rect x="92" y="302" width="22" height="14" rx="5" fill="#241436"/>
+</g>
+<!-- analyser -->
+<g transform="translate(500 0)">
+  <rect x="0" y="236" width="230" height="178" rx="18" fill="#fff" stroke="#d8c7ea" stroke-width="4"/>
+  <rect x="0" y="236" width="230" height="44" rx="18" fill="#6e2a8f"/>
+  <rect x="0" y="262" width="230" height="18" fill="#6e2a8f"/>
+  <circle cx="26" cy="258" r="6" fill="#79c93c"/><circle cx="46" cy="258" r="6" fill="#f5a900"/>
+  <rect x="24" y="298" width="130" height="86" rx="10" fill="url(#screen)"/>
+  <path d="M34 354l16-26 14 34 16-44 14 38 14-22 16 18 14-8" fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="172" y="300" width="40" height="28" rx="8" fill="#e4d7f1"/><rect x="172" y="340" width="40" height="44" rx="8" fill="#cdeaf8"/>
+</g>
+<!-- floating drops -->
+<path d="M395 190c0 0 16 20 16 32a16 16 0 0 1-32 0c0-12 16-32 16-32z" fill="#ff8a73" opacity=".85"/>
+<circle cx="760" cy="300" r="4" fill="#fff"/><circle cx="40" cy="300" r="5" fill="#fff"/>
+</svg>

@@ -61,6 +61,11 @@ The banner on the home page reads its figures from the site's own data (tests av
 While `null`: the demo shows a dash with a "confirm" tag; the live site (`draft: false`) hides the tile. When you have a real count, enter it rounded
 down (e.g. `1200`) and it shows as "1,200+" (Indian digit grouping, e.g. 25,00,000+). Refresh it every month or two. Never enter a number you cannot back up.
 
+## Sample illustrations (current images)
+`img/hero.svg`, `lab.svg`, `team.svg`, `collection.svg`, `building.svg` are original illustrations drawn for this demo (no stock photos, no licences, no real people).
+They fill the five photo spots and show a small "Sample illustration" label. To switch to real photos: put them in `img/`, change the file names in
+`LAB.photos` (`data.js`), and set `LAB.photoSamples = false` to remove the label.
+
 ## Photos (the biggest upgrade you can make)
 Take phone photos in good daylight, landscape, and put them in `img/`. Then set the file names in `LAB.photos` in `data.js`:
 `hero` (lab entrance or team), `lab` (analysers, clean bench), `team` (pathologist + technicians, with consent),

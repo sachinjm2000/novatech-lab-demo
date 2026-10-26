@@ -32,6 +32,7 @@
     finderResult: "We suggest", finderAlso: "Also consider", finderReset: "Start over", finderBack: "← Back", finderFor: "For",
     viewList: "View list", listTitle: "My list", listEmpty: "Your list is empty. Add tests or checkups and send them in one WhatsApp message.", listClear: "Clear all", listSend: "Send on WhatsApp", remove: "Remove",
     partOf: "Part of these checkups", fabChat: "Ask on WhatsApp", findChip: "Not sure? Find my checkup",
+    sampleBadge: "Sample illustration",
     backHome: "← Back to home"
   };
   var mr = {
@@ -66,6 +67,7 @@
     finderResult: "आम्ही सुचवतो", finderAlso: "हेही विचारात घ्या", finderReset: "पुन्हा सुरू करा", finderBack: "← मागे", finderFor: "यांच्यासाठी",
     viewList: "यादी पहा", listTitle: "माझी यादी", listEmpty: "तुमची यादी रिकामी आहे. तपासण्या किंवा चेकअप जोडा आणि एकाच WhatsApp संदेशात पाठवा.", listClear: "सर्व काढा", listSend: "WhatsApp वर पाठवा", remove: "काढा",
     partOf: "या चेकअपमध्ये समाविष्ट", fabChat: "WhatsApp वर विचारा", findChip: "कळत नाही? माझे चेकअप शोधा",
+    sampleBadge: "नमुना चित्र",
     backHome: "← मुख्यपृष्ठावर परत"
   };
   window.X = window.X || { en: {}, mr: {} };
