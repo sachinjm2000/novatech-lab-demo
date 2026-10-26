@@ -299,3 +299,7 @@ window.LAB.consultantCount = 14;
    tag, and the live site (draft: false) hides the tile. Update it every month or two. */
 window.LAB.testsDone = null;
 window.LAB.testsDoneSuffix = "+";
+
+
+/* First chip under the search bar jumps to the guided finder. */
+window.LAB.searchChips.unshift({ label: "Not sure? Find my checkup", label_mr: "कळत नाही? माझे चेकअप शोधा", href: "#finder", accent: true });

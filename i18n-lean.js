@@ -25,6 +25,13 @@
     demoBanner: "DEMO PAGE: sample content, not the official Novatech website. Yellow “confirm” tags and 📷 boxes mark details still to be added.",
     demoNote: "This is a demo page for review. It is not the official website of Novatech Multispeciality Hospital. Prices, contacts and photos are placeholders.",
     bandDone: "Tests done", bandTests: "Tests available", bandPkgs: "Health packages", bandAreas: "Home-collection areas", bandDocs: "Specialist consultants",
+    finderTitle: "Not sure what to test? Find your checkup in 2 taps", finderSub: "Answer two quick questions and we will suggest a checkup. This is a suggestion only; your doctor decides what you need.",
+    finderQ1: "Who is it for?", finderQ2: "What matters most?", finderStep: "Step {n} of 2",
+    whoMan: "Man", whoWoman: "Woman", whoSenior: "Senior (60+)",
+    whyRoutine: "Yearly health check", whyDiab: "Diabetes", whyHeart: "Heart & cholesterol", whyThyroid: "Thyroid / tiredness", whyFever: "Fever", whySurgery: "Before surgery", whyKidney: "Kidney",
+    finderResult: "We suggest", finderAlso: "Also consider", finderReset: "Start over", finderBack: "← Back", finderFor: "For",
+    viewList: "View list", listTitle: "My list", listEmpty: "Your list is empty. Add tests or checkups and send them in one WhatsApp message.", listClear: "Clear all", listSend: "Send on WhatsApp", remove: "Remove",
+    partOf: "Part of these checkups", fabChat: "Ask on WhatsApp", findChip: "Not sure? Find my checkup",
     backHome: "← Back to home"
   };
   var mr = {
@@ -52,6 +59,13 @@
     demoBanner: "डेमो पेज: नमुना मजकूर, नोव्हाटेकची अधिकृत वेबसाइट नाही. पिवळे “निश्चित करा” टॅग व 📷 चौकटी म्हणजे अजून भरायची माहिती.",
     demoNote: "हे पुनरावलोकनासाठी डेमो पेज आहे. ही नोव्हाटेक मल्टिस्पेशालिटी हॉस्पिटलची अधिकृत वेबसाइट नाही. दर, संपर्क व फोटो नमुना आहेत.",
     bandDone: "केलेल्या तपासण्या", bandTests: "उपलब्ध तपासण्या", bandPkgs: "आरोग्य पॅकेजेस", bandAreas: "घरी संकलनाचे परिसर", bandDocs: "तज्ज्ञ डॉक्टर",
+    finderTitle: "काय तपासावे ते कळत नाही? २ टॅपमध्ये तुमचे चेकअप शोधा", finderSub: "दोन छोट्या प्रश्नांची उत्तरे द्या, आम्ही चेकअप सुचवू. ही फक्त सूचना आहे; तुम्हाला काय हवे ते तुमचे डॉक्टरच ठरवतात.",
+    finderQ1: "कोणासाठी?", finderQ2: "सर्वात महत्त्वाचे काय?", finderStep: "पायरी {n} / २",
+    whoMan: "पुरुष", whoWoman: "महिला", whoSenior: "ज्येष्ठ (६०+)",
+    whyRoutine: "वार्षिक आरोग्य तपासणी", whyDiab: "मधुमेह", whyHeart: "हृदय व कोलेस्टेरॉल", whyThyroid: "थायरॉईड / थकवा", whyFever: "ताप", whySurgery: "शस्त्रक्रियापूर्वी", whyKidney: "किडनी",
+    finderResult: "आम्ही सुचवतो", finderAlso: "हेही विचारात घ्या", finderReset: "पुन्हा सुरू करा", finderBack: "← मागे", finderFor: "यांच्यासाठी",
+    viewList: "यादी पहा", listTitle: "माझी यादी", listEmpty: "तुमची यादी रिकामी आहे. तपासण्या किंवा चेकअप जोडा आणि एकाच WhatsApp संदेशात पाठवा.", listClear: "सर्व काढा", listSend: "WhatsApp वर पाठवा", remove: "काढा",
+    partOf: "या चेकअपमध्ये समाविष्ट", fabChat: "WhatsApp वर विचारा", findChip: "कळत नाही? माझे चेकअप शोधा",
     backHome: "← मुख्यपृष्ठावर परत"
   };
   window.X = window.X || { en: {}, mr: {} };

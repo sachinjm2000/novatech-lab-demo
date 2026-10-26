@@ -311,7 +311,7 @@
     }).join("");
   }
   function renderPackages() {
-    var list = PAGE === "home" ? LAB.packages.filter(function (p) { return p.featured; })
+    var list = (PAGE === "home" && pkgTag === "all") ? LAB.packages.filter(function (p) { return p.featured; })
       : LAB.packages.filter(function (p) { return pkgTag === "all" || (p.tags || []).indexOf(pkgTag) > -1; });
     q("#pkgGrid").innerHTML = list.map(function (p, i) {
       return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + ';--ic:' + pal(i + 1).ic + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
@@ -357,6 +357,11 @@
   function openDetail(key) {
     openKey = key;
     var kind = key.split(":")[0], name = key.slice(kind.length + 1), html = "";
+    if (kind === "list") {
+      q("#dlgBody").innerHTML = listHtml();
+      if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); document.documentElement.classList.add("lock"); }
+      return;
+    }
     if (kind === "pkg") {
       var p = pkgById(name); if (!p) return;
       html = '<div class="d-head"><span class="pkg-ico big" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '">' + pkgIcon(p.icon) + '</span><div><h3 id="dlgTitle">' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p></div></div>" +
@@ -370,7 +375,7 @@
         '<div class="chips-row">' + (isFastTest(name) ? fastChip("8–12 hrs") : "") + "</div>" +
         '<h4>' + esc(t("mAbout")) + "</h4><p>" + esc(info ? (info[lang] || info.en) : t("mNoInfo")) + "</p>" +
         '<div class="d-foot"><div class="price">' + priceHtml(price) + "</div>" + dAdd(name) + '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + esc(waLink(t("waOne").replace("{n}", name))) + '">' + esc(t("mBook")) + "</a></div>" +
-        (more.length ? '<h4>' + esc(t("mMore")) + '</h4><div class="pills">' + more.map(function (n) { return '<button type="button" class="chip" data-open="test:' + esc(n) + '">' + esc(testName(n)) + "</button>"; }).join("") + "</div>" : "");
+        partOfHtml(name) + (more.length ? '<h4>' + esc(t("mMore")) + '</h4><div class="pills">' + more.map(function (n) { return '<button type="button" class="chip" data-open="test:' + esc(n) + '">' + esc(testName(n)) + "</button>"; }).join("") + "</div>" : "");
     }
     q("#dlgBody").innerHTML = html;
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); document.documentElement.classList.add("lock"); }
@@ -417,7 +422,7 @@
     var had = selected.has(name);
     if (had) selected.delete(name); else selected.add(name);
     toast((had ? t("mRemoved") : t("mAdded")) + (pkgByName(name) ? L(pkgByName(name), "name") : testName(name)));
-    renderPackages(); renderTests(); updateBar(true);
+    renderPackages(); renderTests(); renderFinder(); updateBar(true);
     if (openKey) openDetail(openKey);
   }
 
@@ -502,9 +507,66 @@
   function pickSuggest(i) { var it = sgItems[i]; if (!it) return; closeSuggest(); openDetail(it.key); }
   function renderChips() {
     q("#chipbar").innerHTML = (LAB.searchChips || []).map(function (c) {
-      return c.open ? '<button type="button" class="schip" data-open="' + esc(c.open) + '">' + esc(L(c, "label")) + "</button>"
-        : '<a class="schip" href="tests.html?q=' + encodeURIComponent(c.q || c.label) + '#tests">' + esc(L(c, "label")) + "</a>";
+      var cls = "schip" + (c.accent ? " accent" : "");
+      if (c.href) return '<a class="' + cls + '" href="' + esc(c.href) + '">✨ ' + esc(L(c, "label")) + "</a>";
+      return c.open ? '<button type="button" class="' + cls + '" data-open="' + esc(c.open) + '">' + esc(L(c, "label")) + "</button>"
+        : '<a class="' + cls + '" href="tests.html?q=' + encodeURIComponent(c.q || c.label) + '#tests">' + esc(L(c, "label")) + "</a>";
     }).join("");
+  }
+
+  /* ---------- guided finder (2 taps -> suggested checkup) ---------- */
+  var fin = { who: null, why: null };
+  var WHO = [["man", "whoMan", "👨"], ["woman", "whoWoman", "👩"], ["senior", "whoSenior", "🧓"]];
+  var WHY = [["routine", "whyRoutine", "🩺"], ["diab", "whyDiab", "🍬"], ["heart", "whyHeart", "❤️"], ["thyroid", "whyThyroid", "🦋"], ["fever", "whyFever", "🌡️"], ["surgery", "whySurgery", "🏥"], ["kidney", "whyKidney", "💧"]];
+  function recommend(who, why) {
+    var ids;
+    if (why === "routine") ids = who === "woman" ? ["women", "full"] : who === "senior" ? ["senior", "full"] : ["full", "basic"];
+    else if (why === "diab") ids = who === "senior" ? ["diabetes", "senior"] : ["diabetes", "full"];
+    else if (why === "heart") ids = who === "senior" ? ["heart", "senior"] : ["heart", "full"];
+    else if (why === "thyroid") ids = who === "woman" ? ["thyroid", "women"] : ["thyroid", "full"];
+    else if (why === "fever") ids = ["fever"];
+    else if (why === "surgery") ids = ["preop"];
+    else ids = who === "senior" ? ["kidney", "senior"] : ["kidney", "full"];
+    return ids.map(pkgById).filter(Boolean);
+  }
+  function finderCard(p, i) {
+    return '<article class="fres card" data-open="pkg:' + esc(p.id) + '" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '"><span class="pkg-ico" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '">' + pkgIcon(p.icon) + "</span>" +
+      '<div class="fres-tx"><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p>" + fastChip(p.fasting) + "</div>" +
+      '<div class="fres-foot"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name) + "</div></article>";
+  }
+  function renderFinder() {
+    var box = q("#finderBody"); if (box === NOOP) return;
+    function opt(group, o) { return '<button type="button" class="fopt" data-f="' + group + ":" + o[0] + '"><span class="fo-ico" aria-hidden="true">' + o[2] + "</span><b>" + esc(t(o[1])) + "</b></button>"; }
+    if (!fin.who) {
+      box.innerHTML = '<p class="fstep">' + esc(t("finderStep").replace("{n}", 1)) + '</p><h3>' + esc(t("finderQ1")) + '</h3><div class="fopts">' + WHO.map(function (o) { return opt("who", o); }).join("") + "</div>";
+    } else if (!fin.why) {
+      box.innerHTML = '<p class="fstep">' + esc(t("finderStep").replace("{n}", 2)) + ' · <button type="button" class="link-sm inl" data-f="back">' + esc(t("finderBack")) + '</button></p><h3>' + esc(t("finderQ2")) + '</h3><div class="fopts">' + WHY.map(function (o) { return opt("why", o); }).join("") + "</div>";
+    } else {
+      var rec = recommend(fin.who, fin.why), whoLbl = t(WHO.filter(function (o) { return o[0] === fin.who; })[0][1]), whyLbl = t(WHY.filter(function (o) { return o[0] === fin.why; })[0][1]);
+      box.innerHTML = '<p class="fstep">' + esc(whoLbl) + " · " + esc(whyLbl) + ' · <button type="button" class="link-sm inl" data-f="reset">' + esc(t("finderReset")) + '</button></p>' +
+        '<h3>' + esc(t("finderResult")) + '</h3><div class="fgrid">' + rec.map(finderCard).join("") + "</div>" +
+        '<p class="fmore"><a class="btn btn-ghost" href="tests.html#packages">' + esc(t("seeAllPkgs")) + "</a></p>";
+    }
+  }
+
+  /* ---------- "my list" drawer (reuses the detail dialog) ---------- */
+  function itemLabel(n) { var p = pkgByName(n); return p ? L(p, "name") : testName(n); }
+  function listHtml() {
+    var items = Array.from(selected), body;
+    if (!items.length) body = '<p class="muted">' + esc(t("listEmpty")) + "</p>";
+    else body = '<ul class="mylist">' + items.map(function (n) {
+      return "<li><span>" + esc(itemLabel(n)) + (needsFastFor(n) ? ' <span class="fast sm">' + esc(t("fastTag")) + "</span>" : "") + '</span><button type="button" class="rm" data-add="' + esc(n) + '" aria-label="' + esc(t("remove") + ": " + itemLabel(n)) + '">×</button></li>';
+    }).join("") + "</ul>" + (needsFasting() ? '<p class="fast-hint2">⏰ ' + esc(t("fastHint")) + "</p>" : "") +
+      '<div class="d-foot"><button type="button" class="btn btn-ghost" id="listClear">' + esc(t("listClear")) + '</button><a class="btn btn-wa" target="_blank" rel="noopener" href="' + esc(waLink(waText("cart"))) + '">' + esc(t("listSend")) + "</a></div>";
+    return '<div class="d-head"><span class="pkg-ico big" style="--ic:#8a4bb5"><svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS.clip + '</svg></span><div><h3 id="dlgTitle">' + esc(t("listTitle")) + " (" + items.length + ")</h3></div></div>" + body;
+  }
+  function needsFastFor(n) { var p = pkgByName(n); return !!((p && p.fasting) || isFastTest(n)); }
+  function partOfHtml(name) {
+    var tok = String(name).split(" (")[0].toLowerCase(), hits = LAB.packages.filter(function (p) {
+      return p.includes.some(function (i) { var x = i.toLowerCase(); return x.indexOf(tok) > -1 || (tok.length > 3 && tok.indexOf(x) > -1); });
+    }).slice(0, 4);
+    if (!hits.length) return "";
+    return '<h4>' + esc(t("partOf")) + '</h4><div class="pills">' + hits.map(function (p) { return '<button type="button" class="chip" data-open="pkg:' + esc(p.id) + '">' + esc(L(p, "name")) + "</button>"; }).join("") + "</div>";
   }
 
   /* ---------- i18n apply ---------- */
@@ -516,7 +578,7 @@
   }
   function renderAll() {
     applyText(); fillFields(); renderTrust(); renderStats(); renderTiles(); renderAreas(); renderTrustGrid(); renderSeason();
-    renderPkgFilter(); renderPackages(); renderTests(); renderFaq(); renderPhotos(); renderReviews(); renderChips(); updateBar(); setRot(rotIdx); fitLead();
+    renderPkgFilter(); renderPackages(); renderTests(); renderFaq(); renderPhotos(); renderReviews(); renderChips(); renderFinder(); updateBar(); setRot(rotIdx); fitLead();
     if (openKey) openDetail(openKey);
     observeReveal();
   }
@@ -568,6 +630,13 @@
 
   /* ---------- events ---------- */
   document.addEventListener("click", function (e) {
+    var fb = e.target.closest("[data-f]");
+    if (fb) {
+      var spec = fb.getAttribute("data-f");
+      if (spec === "reset") { fin.who = fin.why = null; } else if (spec === "back") { fin.who = null; } else { var pr = spec.split(":"); fin[pr[0]] = pr[1]; }
+      renderFinder(); return;
+    }
+    if (e.target.closest("#listClear")) { selected.clear(); renderPackages(); renderTests(); updateBar(); renderFinder(); openDetail("list"); return; }
     var ach = e.target.closest("[data-area]");
     if (ach) { var v = ach.getAttribute("data-area"); setArea(area === v ? "" : v); return; }
     var add = e.target.closest("[data-add]");

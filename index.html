@@ -88,6 +88,17 @@
     </div>
   </section>
 
+  <!-- GUIDED FINDER: two taps to a suggested checkup -->
+  <section class="sec tight" id="finder">
+    <div class="wrap">
+      <div class="finder card">
+        <h2 data-i18n="finderTitle"></h2>
+        <p class="sub" data-i18n="finderSub"></p>
+        <div id="finderBody" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- AREA CHECK + BROWSE BY NEED -->
   <section class="sec tight" id="options">
     <div class="wrap">
@@ -114,6 +125,8 @@
     <div class="wrap">
       <h2 data-i18n="featTitle"></h2>
       <div id="season"></div>
+      <p class="filter-label" data-i18n="whoFor"></p>
+      <div class="tabs" id="pkgFilter" role="tablist"></div>
       <div class="grid pkgs" id="pkgGrid"></div>
       <p class="center"><a class="btn btn-ghost" href="tests.html#packages" data-i18n="seeAllPkgs"></a></p>
     </div>
@@ -196,12 +209,13 @@
 <dialog id="detail" aria-labelledby="dlgTitle">
   <div class="dlg-card"><button type="button" class="dlg-x" id="dlgClose" aria-label="Close">×</button><div id="dlgBody"></div></div>
 </dialog>
+<a class="fab" data-wa="hello" href="#"><span aria-hidden="true">💬</span><b data-i18n="fabChat"></b></a>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <div class="bar" id="bar">
   <p class="fast-hint" id="fastHint" hidden></p>
   <div class="bar-sel" id="barSel" hidden>
-    <span><b id="selCount">0</b> <span data-i18n="selected"></span></span>
+    <button type="button" class="viewlist" data-open="list"><b id="selCount">0</b> <span data-i18n="selected"></span> · <u data-i18n="viewList"></u></button>
     <button type="button" id="selClear" class="link-sm" data-i18n="clear"></button>
     <a class="btn btn-wa" data-wa="cart" href="#"><span data-i18n="sendWa"></span></a>
   </div>

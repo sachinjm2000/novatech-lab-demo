@@ -30,6 +30,15 @@ cd ~/Documents/NovatechLab-site && python3 -m http.server 8791
   doctors and companies, FAQ. Links such as `tests.html?cat=heart#tests` and `?pkg=women#packages` open the right tab.
 - The "my list" is carried between the two pages for the session.
 
+## Engagement features
+- **Find your checkup in 2 taps** (home page, `#finder`): who it is for -> what matters most -> 1-2 suggested checkups with Add. Rules are in `recommend()` in `app.js`
+  (they use package ids). It is a suggestion only; the page says the doctor decides. Review the rules with the pathologist.
+- **Audience chips** (Men / Women / 60+ / Diabetes / Heart / Kidney / Fever / Before surgery) now filter the featured checkups on the home page too.
+- **My list drawer:** the bar's "N selected · View list" opens the list with remove buttons and a WhatsApp send button.
+- **Part of these checkups:** a test's pop-up links to the checkups that include it (matched from each package's `includes`).
+- **Chat button** on desktop (phones already have the bottom bar).
+- Add analytics events at launch (WhatsApp click, finder completed, Add clicked) so you can see what actually keeps people clicking.
+
 ## Hero headline
 The second headline line rotates through three phrases (`rot1`-`rot3`), and the sentence under it changes with it (`sub1`-`sub3`).
 All six strings (English and Marathi) are in `app.js` / `i18n-lean.js`. The height is reserved for the longest version so nothing jumps.
