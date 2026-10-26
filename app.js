@@ -693,5 +693,7 @@
   }
   q("#draftBanner").hidden = !LAB.draft;
   renderAll();
-  if (PAGE === "tests" && location.hash) setTimeout(function () { scrollToEl(location.hash); }, 250); onScroll(); navSpy(); startRot();
+  if (PAGE === "tests" && location.hash) setTimeout(function () { scrollToEl(location.hash); }, 250);
+  onScroll(); navSpy(); startRot();
+  document.documentElement.classList.add("ready");   // reveal the page now that everything is rendered (no visible layout shifts)
 })();

@@ -711,3 +711,10 @@ h2 { color: var(--brand); }
 /* primary call to action: bigger, with a short note on what happens when it is tapped */
 .btn-lg { min-height: 56px; padding: 0 30px; font-size: 1.05rem; }
 .cta-hint { margin: 2px 0 0; font-size: .85rem; color: var(--muted); }
+
+
+/* No layout shifts: page content stays invisible (but laid out) until the script has rendered it. Invisible things cannot visibly jump. */
+.js:not(.ready) main, .js:not(.ready) footer { visibility: hidden; }
+.ready main, .ready footer { visibility: visible; animation: fadein .25s both; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ready main, .ready footer { animation: none; } }
