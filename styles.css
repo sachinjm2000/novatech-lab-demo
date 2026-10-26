@@ -8,8 +8,8 @@
   --brand-dark: #55226f;
   --brand-tint: #f0e6f7;
   --accent: #f59e0b;
-  --wa: #1fae55;
-  --wa-dark: #178c44;
+  --wa: #15803d;
+  --wa-dark: #0f6b31;
   --warn-bg: #fff3c4;
   --warn-ink: #6b5200;
   --radius: 18px;
@@ -706,3 +706,8 @@ h2 { color: var(--brand); }
 .sample-badge { position: absolute; right: 10px; bottom: 10px; padding: 3px 10px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--brand-dark); font-size: .7rem; font-weight: 700; letter-spacing: .02em; box-shadow: 0 2px 8px rgba(36, 20, 54, .15); pointer-events: none; }
 .photo.banner { box-shadow: 0 18px 40px rgba(76, 29, 107, .22); border-radius: 22px; }
 .meet .photo { border-radius: 20px; }
+
+
+/* primary call to action: bigger, with a short note on what happens when it is tapped */
+.btn-lg { min-height: 56px; padding: 0 30px; font-size: 1.05rem; }
+.cta-hint { margin: 2px 0 0; font-size: .85rem; color: var(--muted); }

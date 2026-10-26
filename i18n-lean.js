@@ -30,9 +30,10 @@
     whoMan: "Man", whoWoman: "Woman", whoSenior: "Senior (60+)",
     whyRoutine: "Yearly health check", whyDiab: "Diabetes", whyHeart: "Heart & cholesterol", whyThyroid: "Thyroid / tiredness", whyFever: "Fever", whySurgery: "Before surgery", whyKidney: "Kidney",
     finderResult: "We suggest", finderAlso: "Also consider", finderReset: "Start over", finderBack: "← Back", finderFor: "For",
-    viewList: "View list", listTitle: "My list", listEmpty: "Your list is empty. Add tests or checkups and send them in one WhatsApp message.", listClear: "Clear all", listSend: "Send on WhatsApp", remove: "Remove",
+    viewList: "View list", listTitle: "My list", listEmpty: "Your list is empty. Add tests or checkups and send them in one WhatsApp message.", listClear: "Clear all", listSend: "Book these on WhatsApp", remove: "Remove",
     partOf: "Part of these checkups", fabChat: "Ask on WhatsApp", findChip: "Not sure? Find my checkup",
     sampleBadge: "Sample illustration",
+    waHint: "Opens WhatsApp with your message already written.", addToList: "Add to list",
     backHome: "← Back to home"
   };
   var mr = {
@@ -65,9 +66,10 @@
     whoMan: "पुरुष", whoWoman: "महिला", whoSenior: "ज्येष्ठ (६०+)",
     whyRoutine: "वार्षिक आरोग्य तपासणी", whyDiab: "मधुमेह", whyHeart: "हृदय व कोलेस्टेरॉल", whyThyroid: "थायरॉईड / थकवा", whyFever: "ताप", whySurgery: "शस्त्रक्रियापूर्वी", whyKidney: "किडनी",
     finderResult: "आम्ही सुचवतो", finderAlso: "हेही विचारात घ्या", finderReset: "पुन्हा सुरू करा", finderBack: "← मागे", finderFor: "यांच्यासाठी",
-    viewList: "यादी पहा", listTitle: "माझी यादी", listEmpty: "तुमची यादी रिकामी आहे. तपासण्या किंवा चेकअप जोडा आणि एकाच WhatsApp संदेशात पाठवा.", listClear: "सर्व काढा", listSend: "WhatsApp वर पाठवा", remove: "काढा",
+    viewList: "यादी पहा", listTitle: "माझी यादी", listEmpty: "तुमची यादी रिकामी आहे. तपासण्या किंवा चेकअप जोडा आणि एकाच WhatsApp संदेशात पाठवा.", listClear: "सर्व काढा", listSend: "हे WhatsApp वर बुक करा", remove: "काढा",
     partOf: "या चेकअपमध्ये समाविष्ट", fabChat: "WhatsApp वर विचारा", findChip: "कळत नाही? माझे चेकअप शोधा",
     sampleBadge: "नमुना चित्र",
+    waHint: "तुमचा संदेश आधीच लिहिलेला असलेले WhatsApp उघडते.", addToList: "यादीत जोडा",
     backHome: "← मुख्यपृष्ठावर परत"
   };
   window.X = window.X || { en: {}, mr: {} };

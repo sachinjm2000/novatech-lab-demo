@@ -39,7 +39,7 @@
       contactTitle: "Find the lab", cAddr: "Address", cLab: "Lab timings", cReport: "Reports", cPhone: "Phone", cPath: "Pathologist", cAccr: "Accreditation", cMap: "Open in Google Maps",
       inHospital: "Inside the hospital", inHospitalD: "The lab is part of Novatech Multispeciality Hospital, so tests advised by our consultants are one corridor away.",
       disclaimer: "Tests should be done as advised by your doctor. This website is information only and does not replace medical advice.",
-      selected: "selected", clear: "Clear", sendWa: "Send on WhatsApp",
+      selected: "selected", clear: "Clear", sendWa: "Book on WhatsApp",
       add: "Add", added: "Added", includes: "Includes", tatWord: "Report",
       pickArea: "Select your area to check.", availYes: "Home collection is available in {a}.", availNo: "Please call us to confirm collection in your area.",
       otherArea: "Other area", chooseArea: "Choose area…", chooseOpt: "Choose…", confirm: "confirm",
@@ -75,7 +75,7 @@
       contactTitle: "लॅब कुठे आहे", cAddr: "पत्ता", cLab: "लॅबची वेळ", cReport: "रिपोर्ट", cPhone: "फोन", cPath: "पॅथॉलॉजिस्ट", cAccr: "मान्यता", cMap: "गुगल मॅपमध्ये उघडा",
       inHospital: "हॉस्पिटलमध्येच", inHospitalD: "ही लॅब नोव्हाटेक मल्टिस्पेशालिटी हॉस्पिटलचाच भाग आहे, त्यामुळे आमच्या डॉक्टरांनी सांगितलेल्या तपासण्या जवळच होतात.",
       disclaimer: "तपासण्या डॉक्टरांच्या सल्ल्यानुसार कराव्यात. ही वेबसाइट फक्त माहितीसाठी आहे, वैद्यकीय सल्ल्याचा पर्याय नाही.",
-      selected: "निवडले", clear: "रद्द करा", sendWa: "WhatsApp वर पाठवा",
+      selected: "निवडले", clear: "रद्द करा", sendWa: "WhatsApp वर बुक करा",
       add: "जोडा", added: "जोडले", includes: "यात समाविष्ट", tatWord: "रिपोर्ट",
       pickArea: "तपासण्यासाठी परिसर निवडा.", availYes: "{a} मध्ये घरी नमुना संकलन उपलब्ध आहे.", availNo: "तुमच्या परिसरासाठी कृपया कॉल करून खात्री करा.",
       otherArea: "इतर परिसर", chooseArea: "परिसर निवडा…", chooseOpt: "निवडा…", confirm: "निश्चित करा",
@@ -294,9 +294,9 @@
   /* ---------- packages / tests / faq ---------- */
   function priceHtml(p) { return p ? "₹" + esc(p) : "₹ " + (LAB.draft ? tbd() : "—"); }
   function tatHtml(x) { return x ? esc(x) : (LAB.draft ? t("tatWord") + " " + tbd() : ""); }
-  function addBtn(name, big) {
+  function addBtn(name, big, long) {
     var on = selected.has(name);
-    return '<button type="button" class="add' + (big ? " big" : "") + '" data-add="' + esc(name) + '" aria-pressed="' + on + '">' + esc(on ? t("added") : t("add")) + "</button>";
+    return '<button type="button" class="add' + (big ? " big" : "") + '" data-add="' + esc(name) + '" aria-pressed="' + on + '">' + esc(on ? t("added") : t(long ? "addToList" : "add")) + "</button>";
   }
   function hrs(s) { return lang === "mr" ? String(s).replace("hrs", "तास").replace("as advised", "सांगितल्यानुसार") : s; }
   function fastChip(fasting) {
@@ -319,7 +319,7 @@
         '<div class="chips-row">' + fastChip(p.fasting) + '<span class="fast tat">' + tatHtml(p.tat) + "</span></div>" +
         '<ul class="inc">' + p.includes.slice(0, 4).map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") +
         (p.includes.length > 4 ? '<li class="more">+' + (p.includes.length - 4) + " …</li>" : "") + "</ul>" +
-        '<div class="foot-row"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name) + "</div>" +
+        '<div class="foot-row"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name, false, true) + "</div>" +
         '<span class="view">' + esc(t("mView")) + "</span></article>";
     }).join("");
   }
@@ -384,7 +384,7 @@
     var on = selected.has(name);
     return '<button type="button" class="btn ' + (on ? "btn-primary" : "btn-ghost") + '" data-add="' + esc(name) + '" data-dlg="1">' + esc(on ? t("mInList") : t("mAddList")) + "</button>";
   }
-  function closeDetail() { if (dlg.open) dlg.close(); }
+  function closeDetail() { openKey = null; if (dlg.open) dlg.close(); }
   dlg.addEventListener("close", function () { document.documentElement.classList.remove("lock"); openKey = null; });
   dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDetail(); });
   q("#dlgClose").addEventListener("click", closeDetail);
@@ -532,7 +532,7 @@
   function finderCard(p, i) {
     return '<article class="fres card" data-open="pkg:' + esc(p.id) + '" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '"><span class="pkg-ico" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '">' + pkgIcon(p.icon) + "</span>" +
       '<div class="fres-tx"><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p>" + fastChip(p.fasting) + "</div>" +
-      '<div class="fres-foot"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name) + "</div></article>";
+      '<div class="fres-foot"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name, false, true) + "</div></article>";
   }
   function renderFinder() {
     var box = q("#finderBody"); if (box === NOOP) return;

@@ -30,6 +30,16 @@ cd ~/Documents/NovatechLab-site && python3 -m http.server 8791
   doctors and companies, FAQ. Links such as `tests.html?cat=heart#tests` and `?pkg=women#packages` open the right tab.
 - The "my list" is carried between the two pages for the session.
 
+## Call-to-action rules used (and what to A/B test after launch)
+Applied: one dominant action (Book on WhatsApp: pinned bar on phones, chat button on desktop, large hero button), labels start with a verb and name the outcome,
+button text contrast >= 4.5:1 (WhatsApp green is #15803d, 5.0:1), tap targets >= 44px, and a note saying what happens on tap ("Opens WhatsApp with your message already written").
+Not proven for this lab: the advice comes from design guidelines and marketing blogs, not tests on your visitors. After launch, test ONE change at a time with real traffic:
+1. "Book on WhatsApp" vs first-person "Book my test" (the "+90%" claim is from one old test; treat as a hypothesis).
+2. Hero order: search first (current) vs the Book button first.
+3. Number of chips under the search bar (7 now) vs 4.
+4. "Add to list" vs "Book now" directly on package cards.
+Track with analytics events: WhatsApp click, Call click, Add click, finder completed.
+
 ## Engagement features
 - **Find your checkup in 2 taps** (home page, `#finder`): who it is for -> what matters most -> 1-2 suggested checkups with Add. Rules are in `recommend()` in `app.js`
   (they use package ids). It is a suggestion only; the page says the doctor decides. Review the rules with the pathologist.
