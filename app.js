@@ -17,15 +17,15 @@
     en: {
       brandSub: "Pathology Laboratory · Sangli", navPackages: "Packages", navTests: "Tests", navHome: "Home collection", navContact: "Contact",
       eyebrow: "Inside Novatech Multispeciality Hospital, Sangli",
-      heroPre: "Your blood tests,", rot1: "under one roof", rot2: "at your doorstep", rot3: "reports on WhatsApp",
+      heroPre: "Tests your doctor advised,", rot1: "in the same hospital", rot2: "reports to your doctor", rot3: "samples at home",
       heroSub: "Walk in at the hospital, or book home sample collection in Sangli, Miraj and Kupwad. Reports come to your WhatsApp.",
       ctaWhatsapp: "Book on WhatsApp", ctaCall: "Call the lab",
       statTests: "tests you can book", statPkgs: "health packages", statAreas: "home-collection areas",
       areaTitle: "Is home collection available in your area?", areaPick: "Choose your area",
       areaBook: "Book home collection", uploadRx: "Have a prescription? Send a photo on WhatsApp",
       tilesTitle: "What are you looking for?", tilesSub: "Tap an option to jump straight to the right tests.",
-      s1t: "Book", s1d: "On WhatsApp, by phone, or walk in.", s2t: "Sample", s2d: "Collected at the hospital or at your home.",
-      s3t: "Test", s3d: "Tested in the hospital laboratory.", s4t: "Report", s4d: "Sent on WhatsApp; also at the lab counter.",
+      s1t: "Doctor advises", s1d: "Your Novatech doctor writes the tests.", s2t: "Sample", s2d: "Give it at the hospital lab, or at home.",
+      s3t: "Test", s3d: "Tested in the hospital laboratory.", s4t: "Report", s4d: "To you on WhatsApp; show it to your doctor.",
       pkgTitle: "Health checkup packages", pkgSub: "Tap a package to see what is inside. Tap Add to put it on your list, then send everything in one WhatsApp message.",
       testTitle: "All tests", testSub: "Every test our hospital consultants and referring doctors commonly request. Tap a test to learn about it, or Add it to your list. Cannot find yours? Send the prescription photo.",
       testNote: "Some specialised tests may be sent to a partner reference laboratory; we will confirm price and report time when you book. Which tests you need is for your doctor to decide.",
@@ -53,15 +53,15 @@
     mr: {
       brandSub: "पॅथॉलॉजी लॅब · सांगली", navPackages: "पॅकेजेस", navTests: "तपासण्या", navHome: "घरी नमुना संकलन", navContact: "संपर्क",
       eyebrow: "नोव्हाटेक मल्टिस्पेशालिटी हॉस्पिटल, सांगली येथे",
-      heroPre: "तुमच्या रक्त तपासण्या,", rot1: "एकाच छताखाली", rot2: "तुमच्या दारात", rot3: "रिपोर्ट WhatsApp वर",
+      heroPre: "तुमच्या डॉक्टरांनी सांगितलेल्या तपासण्या,", rot1: "त्याच हॉस्पिटलमध्ये", rot2: "रिपोर्ट तुमच्या डॉक्टरांना", rot3: "घरून नमुना",
       heroSub: "हॉस्पिटलमध्ये येऊन तपासणी करा किंवा सांगली, मिरज, कुपवाड येथे घरी नमुना संकलन बुक करा. रिपोर्ट WhatsApp वर.",
       ctaWhatsapp: "WhatsApp वर बुक करा", ctaCall: "लॅबला कॉल करा",
       statTests: "बुक करता येणाऱ्या तपासण्या", statPkgs: "आरोग्य पॅकेजेस", statAreas: "घरी संकलनाचे परिसर",
       areaTitle: "तुमच्या परिसरात घरी नमुना संकलन उपलब्ध आहे का?", areaPick: "परिसर निवडा",
       areaBook: "घरी नमुना संकलन बुक करा", uploadRx: "चिठ्ठी आहे? WhatsApp वर फोटो पाठवा",
       tilesTitle: "तुम्हाला काय हवे आहे?", tilesSub: "पर्यायावर दाबा आणि थेट योग्य तपासण्यांकडे जा.",
-      s1t: "बुक करा", s1d: "WhatsApp, फोन किंवा प्रत्यक्ष या.", s2t: "नमुना", s2d: "हॉस्पिटलमध्ये किंवा तुमच्या घरी घेतला जातो.",
-      s3t: "तपासणी", s3d: "हॉस्पिटलच्या लॅबमध्ये तपासणी.", s4t: "रिपोर्ट", s4d: "WhatsApp वर; लॅब काउंटरवरही मिळतो.",
+      s1t: "डॉक्टर सांगतात", s1d: "तुमचे नोव्हाटेकचे डॉक्टर तपासण्या लिहून देतात.", s2t: "नमुना", s2d: "हॉस्पिटल लॅबमध्ये किंवा घरी द्या.",
+      s3t: "तपासणी", s3d: "हॉस्पिटलच्या लॅबमध्ये तपासणी.", s4t: "रिपोर्ट", s4d: "तुम्हाला WhatsApp वर; डॉक्टरांना दाखवा.",
       pkgTitle: "आरोग्य तपासणी पॅकेजेस", pkgSub: "पॅकेजमध्ये काय आहे ते पाहण्यासाठी त्यावर दाबा. यादीत टाकण्यासाठी “जोडा” दाबा, मग सर्व एकाच WhatsApp संदेशात पाठवा.",
       testTitle: "सर्व तपासण्या", testSub: "आमचे हॉस्पिटलमधील डॉक्टर आणि संदर्भ देणारे डॉक्टर सामान्यतः सांगतात त्या सर्व तपासण्या. माहिती पाहण्यासाठी तपासणीवर दाबा किंवा यादीत “जोडा”. तुमची तपासणी सापडत नाही? चिठ्ठीचा फोटो पाठवा.",
       testNote: "काही विशेष तपासण्या भागीदार संदर्भ लॅबमध्ये पाठवाव्या लागू शकतात; बुकिंगच्या वेळी दर व रिपोर्टची वेळ कळवू. कोणत्या तपासण्या हव्यात हे तुमच्या डॉक्टरांनी ठरवावे.",
@@ -171,7 +171,7 @@
   /* ---------- static fields ---------- */
   function fillFields() {
     var v = { labName: LAB.labName, hospital: LAB.hospital, city: LAB.city, address: LAB.address, hoursLab: LAB.hours.lab, hoursHome: LAB.hours.homeCollection,
-      hoursReport: LAB.hours.reportTime, phone: LAB.phone, pathologist: LAB.pathologist, accreditation: LAB.accreditation };
+      hoursReport: LAB.hours.reportTime, phone: LAB.phone, pathologist: LAB.pathologist, accreditation: LAB.accreditation, location: LAB.labLocation };
     qa("[data-lab]").forEach(function (el) {
       var val = v[el.getAttribute("data-lab")], isRow = el.tagName === "DD";
       if (val) { el.textContent = val; if (isRow) { el.hidden = false; el.previousElementSibling.hidden = false; } }
@@ -514,39 +514,26 @@
     }).join("");
   }
 
-  /* ---------- guided finder (2 taps -> suggested checkup) ---------- */
-  var fin = { who: null, why: null };
-  var WHO = [["man", "whoMan", "👨"], ["woman", "whoWoman", "👩"], ["senior", "whoSenior", "🧓"]];
-  var WHY = [["routine", "whyRoutine", "🩺"], ["diab", "whyDiab", "🍬"], ["heart", "whyHeart", "❤️"], ["thyroid", "whyThyroid", "🦋"], ["fever", "whyFever", "🌡️"], ["surgery", "whySurgery", "🏥"], ["kidney", "whyKidney", "💧"]];
-  function recommend(who, why) {
-    var ids;
-    if (why === "routine") ids = who === "woman" ? ["women", "full"] : who === "senior" ? ["senior", "full"] : ["full", "basic"];
-    else if (why === "diab") ids = who === "senior" ? ["diabetes", "senior"] : ["diabetes", "full"];
-    else if (why === "heart") ids = who === "senior" ? ["heart", "senior"] : ["heart", "full"];
-    else if (why === "thyroid") ids = who === "woman" ? ["thyroid", "women"] : ["thyroid", "full"];
-    else if (why === "fever") ids = ["fever"];
-    else if (why === "surgery") ids = ["preop"];
-    else ids = who === "senior" ? ["kidney", "senior"] : ["kidney", "full"];
-    return ids.map(pkgById).filter(Boolean);
-  }
-  function finderCard(p, i) {
-    return '<article class="fres card" data-open="pkg:' + esc(p.id) + '" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '"><span class="pkg-ico" style="--ic:' + pal(LAB.packages.indexOf(p) + 1).ic + '">' + pkgIcon(p.icon) + "</span>" +
-      '<div class="fres-tx"><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p>" + fastChip(p.fasting) + "</div>" +
-      '<div class="fres-foot"><div class="price">' + priceHtml(p.price) + "</div>" + addBtn(p.name, false, true) + "</div></article>";
-  }
+  /* ---------- department finder: "which department advised your tests?" ---------- */
+  var fin = { dept: null };
+  function deptById(id) { return LAB.departments.filter(function (d) { return d.id === id; })[0]; }
   function renderFinder() {
     var box = q("#finderBody"); if (box === NOOP) return;
-    function opt(group, o) { return '<button type="button" class="fopt" data-f="' + group + ":" + o[0] + '"><span class="fo-ico" aria-hidden="true">' + o[2] + "</span><b>" + esc(t(o[1])) + "</b></button>"; }
-    if (!fin.who) {
-      box.innerHTML = '<p class="fstep">' + esc(t("finderStep").replace("{n}", 1)) + '</p><h3>' + esc(t("finderQ1")) + '</h3><div class="fopts">' + WHO.map(function (o) { return opt("who", o); }).join("") + "</div>";
-    } else if (!fin.why) {
-      box.innerHTML = '<p class="fstep">' + esc(t("finderStep").replace("{n}", 2)) + ' · <button type="button" class="link-sm inl" data-f="back">' + esc(t("finderBack")) + '</button></p><h3>' + esc(t("finderQ2")) + '</h3><div class="fopts">' + WHY.map(function (o) { return opt("why", o); }).join("") + "</div>";
-    } else {
-      var rec = recommend(fin.who, fin.why), whoLbl = t(WHO.filter(function (o) { return o[0] === fin.who; })[0][1]), whyLbl = t(WHY.filter(function (o) { return o[0] === fin.why; })[0][1]);
-      box.innerHTML = '<p class="fstep">' + esc(whoLbl) + " · " + esc(whyLbl) + ' · <button type="button" class="link-sm inl" data-f="reset">' + esc(t("finderReset")) + '</button></p>' +
-        '<h3>' + esc(t("finderResult")) + '</h3><div class="fgrid">' + rec.map(finderCard).join("") + "</div>" +
-        '<p class="fmore"><a class="btn btn-ghost" href="tests.html#packages">' + esc(t("seeAllPkgs")) + "</a></p>";
+    if (!fin.dept) {
+      box.innerHTML = '<p class="fstep">' + esc(t("deptStep")) + '</p><div class="fopts depts">' + LAB.departments.map(function (d, i) {
+        return '<button type="button" class="fopt" data-f="dept:' + esc(d.id) + '" style="--ic:' + pal(i).ic + '"><span class="fo-ico sv">' + pkgIcon(d.svg) + "</span><b>" + esc(L(d, "name")) + "</b></button>";
+      }).join("") + "</div>";
+      return;
     }
+    var d = deptById(fin.dept); if (!d) { fin.dept = null; return renderFinder(); }
+    box.innerHTML = '<p class="fstep"><button type="button" class="link-sm inl" data-f="reset">' + esc(t("finderBack")) + "</button></p>" +
+      "<h3>" + esc(t("deptResult").replace("{d}", L(d, "name"))) + '</h3><p class="muted fnote">' + esc(t("deptNote")) + "</p>" +
+      '<div class="fchips">' + d.tests.map(function (n) {
+        var on = selected.has(n);
+        return '<button type="button" class="chip fchip" data-add="' + esc(n) + '" aria-pressed="' + on + '">' + (on ? "✓ " : "+ ") + esc(testName(n)) + "</button>";
+      }).join("") + "</div>" +
+      '<div class="fmore"><a class="btn btn-wa" data-wa="rx" href="#">' + esc(t("deptSend")) + '</a> <button type="button" class="btn btn-ghost" data-f="reset">' + esc(t("deptReset")) + "</button></div>";
+    wireLinks();
   }
 
   /* ---------- "my list" drawer (reuses the detail dialog) ---------- */
@@ -633,8 +620,8 @@
     var fb = e.target.closest("[data-f]");
     if (fb) {
       var spec = fb.getAttribute("data-f");
-      if (spec === "reset") { fin.who = fin.why = null; } else if (spec === "back") { fin.who = null; } else { var pr = spec.split(":"); fin[pr[0]] = pr[1]; }
-      renderFinder(); return;
+      if (spec === "reset" || spec === "back") fin.dept = null; else if (spec.indexOf("dept:") === 0) fin.dept = spec.slice(5);
+      renderFinder(); if (fin.dept) scrollToEl("#finder"); return;
     }
     if (e.target.closest("#listClear")) { selected.clear(); renderPackages(); renderTests(); updateBar(); renderFinder(); openDetail("list"); return; }
     var ach = e.target.closest("[data-area]");

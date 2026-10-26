@@ -723,3 +723,15 @@ h2 { color: var(--brand); }
 .blob { filter: none; opacity: 1; }
 .blob.b1 { width: 480px; height: 480px; top: -170px; right: -130px; background: radial-gradient(circle, rgba(199, 169, 226, .75) 0, rgba(199, 169, 226, 0) 68%); }
 .blob.b2 { width: 440px; height: 440px; bottom: -190px; left: -140px; background: radial-gradient(circle, rgba(253, 230, 138, .75) 0, rgba(253, 230, 138, 0) 68%); }
+
+
+/* department finder */
+.fopts.depts { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.fo-ico.sv { background: var(--ic); }
+.fo-ico.sv svg { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.fnote { margin: -8px 0 14px; font-size: .9rem; }
+.fchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.fchip { min-height: 44px; padding: 0 14px; font-size: .9rem; text-align: left; }
+.fchip[aria-pressed="true"] { background: #e4d7f1; border-color: var(--brand); color: var(--brand-dark); font-weight: 700; }
+.fmore { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+.bring { margin: 0 0 4px; font-weight: 600; color: var(--brand-dark); }

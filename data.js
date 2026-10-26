@@ -306,3 +306,57 @@ window.LAB.testsDoneSuffix = "+";
 
 /* First chip under the search bar jumps to the guided finder. */
 window.LAB.searchChips.unshift({ label: "Not sure? Find my checkup", label_mr: "कळत नाही? माझे चेकअप शोधा", href: "#finder", accent: true });
+
+
+/* ======================================================================
+   DOCTOR-ADVISED MODEL: departments and the tests each commonly requests (INDICATIVE).
+   Built from the hospital's consultant list; no doctor names are shown. Pathologist/consultants should review.
+   Test names must match LAB.categories exactly (that is what the "Add" buttons and WhatsApp list use).
+   ====================================================================== */
+(function () {
+  var PRE = "HIV, HBsAg, HCV screening (pre-op)";
+  window.LAB.departments = [
+    { id: "medicine", name: "General Medicine", name_mr: "सामान्य औषधोपचार", svg: "clip",
+      tests: ["CBC (Complete Blood Count)", "ESR", "CRP", "Fasting sugar", "Post-meal sugar", "HbA1c", "Lipid profile", "LFT (Liver function)", "KFT (urea, creatinine, eGFR)", "Electrolytes (Na, K, Cl)", "TSH", "Vitamin D", "Vitamin B12", "Iron profile", "Urine routine", "Dengue NS1 / IgM", "Malaria antigen", "Typhoid (Widal / Typhidot)", "Blood culture"] },
+    { id: "surgery", name: "General Surgery", name_mr: "सामान्य शल्यचिकित्सा", svg: "plus",
+      tests: ["CBC (Complete Blood Count)", "PT / INR", "BT / CT", "Blood group & Rh", "Fasting sugar", "HbA1c", "KFT (urea, creatinine, eGFR)", "LFT (Liver function)", PRE, "Urine routine", "Serum amylase / lipase", "TSH", "FNAC", "Pus / wound swab culture", "Biopsy / histopathology"] },
+    { id: "cardio", name: "Cardiology", name_mr: "हृदयरोग", svg: "heart",
+      tests: ["Lipid profile", "hs-Troponin", "CK-MB", "NT-proBNP", "hs-CRP", "HbA1c", "Fasting sugar", "KFT (urea, creatinine, eGFR)", "Electrolytes (Na, K, Cl)", "TSH", "PT / INR", "D-dimer", "Homocysteine", "Lipoprotein(a)", "CBC (Complete Blood Count)", "LFT (Liver function)", "Uric acid"] },
+    { id: "nephro", name: "Nephrology", name_mr: "किडनीविकार", svg: "water",
+      tests: ["KFT (urea, creatinine, eGFR)", "Electrolytes (Na, K, Cl)", "Calcium", "Phosphorus", "PTH", "Vitamin D", "Uric acid", "CBC (Complete Blood Count)", "Iron profile", "Urine routine", "Urine albumin / creatinine ratio", "24-hour urine protein", "HbA1c", "Lipid profile", "HBsAg", "Anti-HCV", "HIV", "Anti-HBs", "C3 / C4", "ANA"] },
+    { id: "uro", name: "Urology", name_mr: "मूत्ररोग", svg: "drop",
+      tests: ["PSA (total / free)", "KFT (urea, creatinine, eGFR)", "Urine routine", "Urine culture & sensitivity", "Uric acid", "Calcium", "Phosphorus", "Urine cytology", "Semen analysis", "Testosterone", "CBC (Complete Blood Count)", "PT / INR", "BT / CT", "Blood group & Rh", "Biopsy / histopathology"] },
+    { id: "onco", name: "Oncology & Cancer Surgery", name_mr: "कर्करोग व शस्त्रक्रिया", svg: "target",
+      tests: ["Biopsy / histopathology", "FNAC", "Immunohistochemistry (ER / PR / HER2)", "CEA", "CA 15-3", "CA-125", "CA 19-9", "AFP", "PSA (total / free)", "CBC (Complete Blood Count)", "LFT (Liver function)", "KFT (urea, creatinine, eGFR)", "Electrolytes (Na, K, Cl)", "Calcium", "PT / INR", "Blood group & Rh", PRE] },
+    { id: "gyn", name: "Gynaecology & Obstetrics", name_mr: "स्त्रीरोग व प्रसूती", svg: "venus",
+      tests: ["CBC (Complete Blood Count)", "Blood group & Rh", "Urine routine", "Glucose tolerance test (75 g)", "HbA1c", "TSH", "HIV", "HBsAg", "VDRL / TPHA", "Beta-hCG", "LH / FSH / Prolactin", "AMH", "Estradiol", "Progesterone", "Testosterone", "Vitamin D", "Vitamin B12", "Iron profile", "Pap smear", "CA-125", "Indirect Coombs", "TORCH panel", "Semen analysis"] },
+    { id: "ortho", name: "Orthopaedics", name_mr: "अस्थिरोग", svg: "user",
+      tests: ["Calcium", "Phosphorus", "Vitamin D", "ALP", "Uric acid", "RA factor", "Anti-CCP", "ESR", "CRP", "CBC (Complete Blood Count)", "HLA-B27", "PT / INR", "BT / CT", "Blood group & Rh", "Fasting sugar", "HbA1c", "KFT (urea, creatinine, eGFR)", PRE, "Synovial fluid analysis", "Pus / wound swab culture", "Blood culture"] },
+    { id: "neurosurg", name: "Neurosurgery", name_mr: "मेंदू व मणक्याची शस्त्रक्रिया", svg: "shield",
+      tests: ["CBC (Complete Blood Count)", "PT / INR", "BT / CT", "Blood group & Rh", "Fasting sugar", "HbA1c", "KFT (urea, creatinine, eGFR)", "LFT (Liver function)", "Electrolytes (Na, K, Cl)", "ESR", "CRP", "Blood culture", "CSF analysis", PRE, "Vitamin B12", "TSH", "Biopsy / histopathology"] },
+    { id: "neuro", name: "Neurology", name_mr: "मज्जासंस्था", svg: "flower",
+      tests: ["Vitamin B12", "Folate", "Vitamin D", "TSH", "Fasting sugar", "HbA1c", "Lipid profile", "Homocysteine", "CBC (Complete Blood Count)", "ESR", "CRP", "KFT (urea, creatinine, eGFR)", "LFT (Liver function)", "Electrolytes (Na, K, Cl)", "Serum ammonia", "Antiepileptic drug levels", "CSF analysis", "ANA", "HIV", "VDRL / TPHA"] },
+    { id: "ent", name: "ENT", name_mr: "कान-नाक-घसा", svg: "thermo",
+      tests: ["CBC (Complete Blood Count)", "Absolute eosinophil count", "ESR", "Total IgE / allergy panel", "Fasting sugar", "HbA1c", "TSH", "FNAC", "Throat / ear swab culture", "Fungal smear (KOH)", "ASO titre", "Biopsy / histopathology", "PT / INR", "BT / CT", "Blood group & Rh", PRE] },
+    { id: "chest", name: "Pulmonology", name_mr: "फुफ्फुसरोग", svg: "germ",
+      tests: ["CBC (Complete Blood Count)", "Absolute eosinophil count", "ESR", "CRP", "Procalcitonin", "Sputum AFB", "TB CBNAAT", "Sputum culture & sensitivity", "Total IgE / allergy panel", "D-dimer", "ABG (arterial blood gas)", "Pleural fluid analysis (incl. ADA)", "Fluid cytology", "Electrolytes (Na, K, Cl)", "HIV", "Fasting sugar", "HbA1c", "PT / INR", "BT / CT"] },
+    { id: "eye", name: "Ophthalmology", name_mr: "नेत्ररोग", svg: "lens",
+      tests: ["Fasting sugar", "Post-meal sugar", "HbA1c", "Lipid profile", "Thyroid profile (T3, T4, TSH)", "CBC (Complete Blood Count)", "ESR", "CRP", "ANA", "HLA-B27", "RA factor", "TB IGRA (QuantiFERON)", "VDRL / TPHA", "Conjunctival swab culture", "KFT (urea, creatinine, eGFR)", PRE] },
+    { id: "dental", name: "Dental", name_mr: "दंतचिकित्सा", svg: "tube",
+      tests: ["CBC (Complete Blood Count)", "BT / CT", "PT / INR", "Fasting sugar", "Random sugar", "HbA1c", PRE, "ESR", "Pus / wound swab culture", "Biopsy / histopathology"] }
+  ];
+
+  // Chips under the home search bar: the tests doctors ask for most often (labels are short; open = exact catalogue name).
+  window.LAB.searchChips = [
+    { label: "Find tests by department", label_mr: "विभागानुसार तपासण्या शोधा", href: "#finder", accent: true },
+    { label: "HbA1c", label_mr: "एचबीए१सी", open: "test:HbA1c" },
+    { label: "Lipid profile", label_mr: "लिपिड प्रोफाइल", open: "test:Lipid profile" },
+    { label: "CBC", label_mr: "सीबीसी", open: "test:CBC (Complete Blood Count)" },
+    { label: "Thyroid (TSH)", label_mr: "थायरॉईड (टीएसएच)", open: "test:TSH" },
+    { label: "Kidney (KFT)", label_mr: "किडनी (केएफटी)", open: "test:KFT (urea, creatinine, eGFR)" },
+    { label: "Dengue", label_mr: "डेंग्यू", open: "test:Dengue NS1 / IgM" }
+  ];
+})();
+
+/* Where the lab is inside the hospital, e.g. "Ground floor, next to the OPD". Confirm before launch. */
+window.LAB.labLocation = null;

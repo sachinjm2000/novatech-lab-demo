@@ -30,6 +30,14 @@ cd ~/Documents/NovatechLab-site && python3 -m http.server 8791
   doctors and companies, FAQ. Links such as `tests.html?cat=heart#tests` and `?pkg=women#packages` open the right tab.
 - The "my list" is carried between the two pages for the session.
 
+## Who this site is for (positioning)
+Novatech's lab mainly serves **tests advised by the hospital's own consultants**, and very few patients come from outside the hospital.
+So the home page is built for Novatech's own patients: "Tests your doctor advised", a **department finder** (which department advised your tests -> the tests that department commonly requests,
+indicative, no doctor names; list is `LAB.departments` in `data.js`), "Send prescription" as the first quick action, a Doctor advises -> Sample -> Test -> Report flow,
+and "Where in the hospital" + "bring your prescription / OPD slip" in the contact card (`LAB.labLocation`). Health-checkup packages are kept as a secondary option, and the
+public-search/SEO side matters less (keep `noindex` removed at launch only if the hospital wants outsiders to find the lab).
+Ideas that fit this model better than marketing: a QR code at OPD desks and on prescriptions linking here, the lab menu in the hospital's own system/app, report delivery to the consultant.
+
 ## Call-to-action rules used (and what to A/B test after launch)
 Applied: one dominant action (Book on WhatsApp: pinned bar on phones, chat button on desktop, large hero button), labels start with a verb and name the outcome,
 button text contrast >= 4.5:1 (WhatsApp green is #15803d, 5.0:1), tap targets >= 44px, and a note saying what happens on tap ("Opens WhatsApp with your message already written").
