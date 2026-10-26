@@ -117,6 +117,8 @@
     target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
     flower: '<circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="12" r="2.4"/>',
     lens: '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
+    home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+    arrow: '<path d="M7 17L17 7M9 7h8v8"/>',
     star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'
   };
   // MarketSmith-style pastel card colours: card background + solid icon circle
@@ -186,18 +188,30 @@
     q("#trust").innerHTML = html;
   }
   function renderStats() {
+    var el = q("#statBand"); if (el === NOOP) return;
     var nTests = LAB.categories.reduce(function (s, c) { return s + c.tests.length; }, 0);
-    var defs = [[nTests, "statTests"], [LAB.packages.length, "statPkgs"], [LAB.areas.length, "statAreas"]];
-    q("#stats").innerHTML = defs.map(function (d) {
-      return '<div class="stat"><b data-count="' + d[0] + '">' + (reduceMotion ? d[0] : 0) + "</b><span>" + esc(t(d[1])) + "</span></div>";
+    var defs = [["tube", nTests, "bandTests"], ["shield", LAB.packages.length, "bandPkgs"], ["home", LAB.areas.length, "bandAreas"], ["user", LAB.consultantCount || 0, "bandDocs"]];
+    el.innerHTML = defs.map(function (d) {
+      return '<div class="sb-item"><span class="sb-ico">' + pkgIcon(d[0]) + '</span><div><b data-count="' + d[1] + '">' + (reduceMotion || statsPlayed ? d[1] : 0) + "</b><span>" + esc(t(d[2])) + "</span></div></div>";
     }).join("");
-    if (!reduceMotion) qa("[data-count]").forEach(function (el) {
-      var end = +el.getAttribute("data-count"), start = null;
-      function step(ts) { if (!start) start = ts; var p = Math.min((ts - start) / 1100, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
-      requestAnimationFrame(step);
-      setTimeout(function () { el.textContent = end; }, 1500); // fallback if the tab was hidden and animation frames paused
-    });
+    if (reduceMotion || statsPlayed) { statStart = null; return; }
+    var started = false;
+    function inView() { var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight * 0.9; }
+    function start() {
+      if (started) return; started = true; statsPlayed = true;
+      qa("[data-count]", el).forEach(function (n) {
+        var end = +n.getAttribute("data-count"), t0 = null;
+        function step(ts) { if (!t0) t0 = ts; var p = Math.min((ts - t0) / 1200, 1); n.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+        setTimeout(function () { n.textContent = end; }, 1600);   // never leave a 0 on screen if animation frames are paused
+      });
+    }
+    statStart = function () { if (inView()) start(); };
+    if ("IntersectionObserver" in window) { var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); start(); } }, { threshold: 0.3 }); io2.observe(el); }
+    setTimeout(statStart, 1200);      // covers the case where the banner is already on screen at load
   }
+  var statStart = null, statsPlayed = false;
+  window.addEventListener("scroll", function () { if (statStart) statStart(); }, { passive: true });
 
   /* ---------- colourful test-group cards (home) ---------- */
   function renderTiles() {
@@ -224,8 +238,18 @@
       LAB.areas.map(function (a) { return '<option value="' + esc(a) + '">' + esc(a) + "</option>"; }).join("") +
       '<option value="__other">' + esc(t("otherArea")) + "</option>";
     sel.value = area === "" ? "" : (LAB.areas.indexOf(area) > -1 ? area : "__other");
-    q("#areaChips").innerHTML = LAB.areas.map(function (a) { return "<li>" + esc(a) + "</li>"; }).join("");
+    renderAreaChips();
     updateAreaResult();
+  }
+  function renderAreaChips() {
+    q("#areaChips").innerHTML = LAB.areas.map(function (a) {
+      return '<li><button type="button" class="achip" data-area="' + esc(a) + '" aria-pressed="' + (area === a) + '">' + esc(a) + "</button></li>";
+    }).join("");
+  }
+  function setArea(v) {
+    area = v; var sel = q("#areaSel");
+    sel.value = v === "" ? "" : (LAB.areas.indexOf(v) > -1 ? v : "__other");
+    updateAreaResult(); renderAreaChips(); wireLinks();
   }
   function updateAreaResult() {
     var el = q("#areaResult"), sel = q("#areaSel").value;
@@ -283,7 +307,7 @@
     var list = PAGE === "home" ? LAB.packages.filter(function (p) { return p.featured; })
       : LAB.packages.filter(function (p) { return pkgTag === "all" || (p.tags || []).indexOf(pkgTag) > -1; });
     q("#pkgGrid").innerHTML = list.map(function (p, i) {
-      return '<article class="card pkg" style="--i:' + i + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
+      return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
         '<div class="pkg-head"><span class="pkg-ico" style="--ic:' + pal(i + 1).ic + '">' + pkgIcon(p.icon) + '</span><div><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p></div></div>" +
         '<div class="chips-row">' + fastChip(p.fasting) + '<span class="fast tat">' + tatHtml(p.tat) + "</span></div>" +
         '<ul class="inc">' + p.includes.slice(0, 4).map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") +
@@ -307,9 +331,12 @@
       return '<button type="button" role="tab" class="ctab" data-tab="' + esc(c.id) + '" aria-selected="' + on + '" style="' + palStyle(i) + '"><span class="rc-ico sm">' + pkgIcon(c.svg) + '</span><span class="ct-tx"><b>' + esc(L(c, "name")) + "</b><small>" + c.tests.length + " " + esc(t("testsWord")) + "</small></span></button>";
     }).join("");
     q("#testList").innerHTML = list.map(function (n, i) {
-      var p = LAB.prices && LAB.prices[n];
-      return '<li style="--i:' + Math.min(i, 12) + '"><button type="button" class="nm" data-open="test:' + esc(n) + '">' + esc(testName(n)) +
-        (isFastTest(n) ? ' <span class="fast sm">' + esc(t("fastTag")) + "</span>" : "") + '</button><span class="pr">' + priceHtml(p) + "</span>" + addBtn(n) + "</li>";
+      var p = LAB.prices && LAB.prices[n], c = catOfTest(n), ci = c ? LAB.categories.indexOf(c) + 1 : 0, info = LAB.testInfo && LAB.testInfo[n];
+      var desc = info ? String(info[lang] || info.en).split(/(?<=[.।])\s/)[0] : (c ? L(c, "desc") : "");
+      return '<li class="trow' + (selected.has(n) ? " is-sel" : "") + '" data-open="test:' + esc(n) + '" style="--i:' + Math.min(i, 12) + ";--ic:" + pal(ci).ic + '">' +
+        '<span class="rc-ico sm">' + pkgIcon(c ? c.svg : "drop") + "</span>" +
+        '<button type="button" class="tr-main"><b class="tr-name">' + esc(testName(n)) + (isFastTest(n) ? ' <span class="fast sm">' + esc(t("fastTag")) + "</span>" : "") + '</b><span class="tr-desc">' + esc(desc) + "</span></button>" +
+        '<span class="pr">' + priceHtml(p) + "</span>" + addBtn(n) + '<span class="arrow" aria-hidden="true">' + pkgIcon("arrow") + "</span></li>";
     }).join("");
     q("#testEmpty").hidden = list.length > 0;
   }
@@ -534,6 +561,8 @@
 
   /* ---------- events ---------- */
   document.addEventListener("click", function (e) {
+    var ach = e.target.closest("[data-area]");
+    if (ach) { var v = ach.getAttribute("data-area"); setArea(area === v ? "" : v); return; }
     var add = e.target.closest("[data-add]");
     if (add) { e.stopPropagation(); toggle(add.getAttribute("data-add")); return; }
     var go_ = e.target.closest("[data-go]");
@@ -555,7 +584,7 @@
   });
   q("#selClear").addEventListener("click", function () { selected.clear(); renderPackages(); renderTests(); updateBar(); });
   q("#testSearch").addEventListener("input", renderTests);
-  q("#areaSel").addEventListener("change", function () { var v = this.value; area = (v === "__other" || v === "") ? "" : v; updateAreaResult(); wireLinks(); });
+  q("#areaSel").addEventListener("change", function () { var v = this.value; area = (v === "__other" || v === "") ? "" : v; updateAreaResult(); renderAreaChips(); wireLinks(); });
   q("#langBtn").addEventListener("click", function () {
     lang = lang === "en" ? "mr" : "en";
     try { localStorage.setItem("lab_lang", lang); } catch (e) {}

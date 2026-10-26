@@ -288,3 +288,7 @@ window.LAB.searchChips = [
   { label: "Lipid profile", label_mr: "लिपिड प्रोफाइल", open: "test:Lipid profile" },
   { label: "Dengue", label_mr: "डेंग्यू", open: "test:Dengue NS1 / IgM" }
 ];
+
+
+/* Count shown in the numbers banner: specialist consultants at the hospital (from the hospital's list of 14). Confirm before launch. */
+window.LAB.consultantCount = 14;
