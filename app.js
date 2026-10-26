@@ -314,8 +314,8 @@
     var list = PAGE === "home" ? LAB.packages.filter(function (p) { return p.featured; })
       : LAB.packages.filter(function (p) { return pkgTag === "all" || (p.tags || []).indexOf(pkgTag) > -1; });
     q("#pkgGrid").innerHTML = list.map(function (p, i) {
-      return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
-        '<div class="pkg-head"><span class="pkg-ico" style="--ic:' + pal(i + 1).ic + '">' + pkgIcon(p.icon) + '</span><div><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p></div></div>" +
+      return '<article class="card pkg' + (selected.has(p.name) ? " sel" : "") + '" style="--i:' + i + ';--ic:' + pal(i + 1).ic + '" data-open="pkg:' + esc(p.id) + '" tabindex="0" role="button" aria-label="' + esc(L(p, "name")) + '">' +
+        '<span class="arrow sm" aria-hidden="true">' + pkgIcon("arrow") + '</span><div class="pkg-head"><span class="pkg-ico" style="--ic:' + pal(i + 1).ic + '">' + pkgIcon(p.icon) + '</span><div><h3>' + esc(L(p, "name")) + '</h3><p class="for">' + esc(L(p, "for")) + "</p></div></div>" +
         '<div class="chips-row">' + fastChip(p.fasting) + '<span class="fast tat">' + tatHtml(p.tat) + "</span></div>" +
         '<ul class="inc">' + p.includes.slice(0, 4).map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") +
         (p.includes.length > 4 ? '<li class="more">+' + (p.includes.length - 4) + " …</li>" : "") + "</ul>" +
@@ -335,7 +335,7 @@
     } else list = catList().filter(function (c) { return c.id === cat; })[0].tests;
     q("#testTabs").innerHTML = catList().map(function (c, i) {
       var on = !term && c.id === cat;
-      return '<button type="button" role="tab" class="ctab" data-tab="' + esc(c.id) + '" aria-selected="' + on + '" style="' + palStyle(i) + '"><span class="rc-ico sm">' + pkgIcon(c.svg) + '</span><span class="ct-tx"><b>' + esc(L(c, "name")) + "</b><small>" + c.tests.length + " " + esc(t("testsWord")) + "</small></span></button>";
+      return '<button type="button" role="tab" class="ctab" data-tab="' + esc(c.id) + '" aria-selected="' + on + '" style="' + palStyle(i) + '"><span class="rc-ico sm">' + pkgIcon(c.svg) + '</span><span class="ct-tx"><b>' + esc(L(c, "name")) + "</b><small>" + c.tests.length + " " + esc(t("testsWord")) + "</small></span>" + '<span class="arrow sm" aria-hidden="true">' + pkgIcon("arrow") + "</span></button>";
     }).join("");
     q("#testList").innerHTML = list.map(function (n, i) {
       var p = LAB.prices && LAB.prices[n], c = catOfTest(n), ci = c ? LAB.categories.indexOf(c) + 1 : 0, info = LAB.testInfo && LAB.testInfo[n];

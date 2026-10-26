@@ -620,3 +620,38 @@ h2 { color: var(--brand); }
   .sb-item { flex-direction: column; align-items: flex-start; gap: 8px; }
   .statband { padding: 22px 16px; gap: 20px 10px; }
 }
+
+
+/* ============ SMART SELECTION TINT (soft, in each item's own colour) ============ */
+.pkg, .tests .trow { --tint: #efe6f7; --tint-b: #d6c1ea; --tint-h: #f6f0fa; }
+@supports (background: color-mix(in srgb, red 10%, white)) {
+  .pkg, .tests .trow { --tint: color-mix(in srgb, var(--ic) 15%, #fff); --tint-b: color-mix(in srgb, var(--ic) 40%, #fff); --tint-h: color-mix(in srgb, var(--ic) 8%, #fff); }
+}
+.pkg.sel, .tests .trow.is-sel { background: var(--tint); border-color: var(--tint-b); box-shadow: none; }
+.pkg::after, .pkg.sel::after { content: none; display: none; }
+.pkg .arrow.sm { position: absolute; top: 14px; right: 14px; }
+.arrow.sm { width: 38px; height: 38px; }
+.arrow.sm svg { width: 17px; height: 17px; }
+.pkg.sel .arrow, .tests .trow.is-sel .arrow { background: #fff; box-shadow: 0 3px 10px rgba(36, 20, 54, .12); }
+@media (hover: hover) {
+  .pkg:hover { background: var(--tint-h); border-color: var(--tint-b); transform: translateY(-3px); }
+  .pkg:hover .arrow { background: #fff; box-shadow: 0 3px 10px rgba(36, 20, 54, .12); transform: translate(2px, -2px); }
+  .pkg.sel:hover { background: var(--tint); }
+  .tests .trow:hover { background: var(--tint-h); border-color: var(--tint-b); }
+  .tests .trow.is-sel:hover { background: var(--tint); }
+}
+
+/* group tabs: selected = a deeper shade of its own colour + white arrow badge (no heavy ring) */
+.ctab { gap: 12px; }
+.ctab .ct-tx { flex: 1; min-width: 0; }
+.ctab .arrow { display: none; margin-left: auto; background: #fff; box-shadow: 0 3px 10px rgba(36, 20, 54, .12); }
+.ctab[aria-selected="true"] { box-shadow: none; border-color: transparent; }
+.ctab[aria-selected="true"] .arrow { display: grid; }
+@supports (background: color-mix(in srgb, red 10%, white)) {
+  .ctab[aria-selected="true"] { background: color-mix(in srgb, var(--ic) 28%, #fff); }
+}
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  .ctab[aria-selected="true"] { border-color: var(--brand); }
+}
+@media (max-width: 639px) { .ctab { flex-basis: 196px; } }
+.pkg-head { padding-right: 46px; }
